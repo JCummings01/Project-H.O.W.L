@@ -1,0 +1,31 @@
+<ion-view view-title="Reps">
+  <ion-content>
+    <ion-list>
+      <div class="card" ng-repeat="rep in reps" ng-click="repSelector(rep)">
+        <div class="item item-text-wrap">
+          <img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">
+          <p>bioguide_id:<span class="rep-attribute">{{rep['@attributes'].bioguide_id}}</span></p>
+          <p>birthdate:<span class="rep-attribute">{{rep['@attributes'].birthdate}}</span></p>
+          <p>cid:<span class="rep-attribute">{{rep['@attributes'].cid}}</span></p>
+          <p>comments:<span class="rep-attribute">{{rep['@attributes'].comments}}</span></p>
+          <p>congress_office:<span class="rep-attribute">{{rep['@attributes'].congress_office}}</span></p>
+          <p>exit_code:<span class="rep-attribute">{{rep['@attributes'].exit_code}}</span></p>
+          <p>facebook_id:<span class="rep-attribute">{{rep['@attributes'].facebook_id}}</span></p>
+          <p>fax:<span class="rep-attribute">{{rep['@attributes'].fax}}</span></p>
+          <p>feccandid:<span class="rep-attribute">{{rep['@attributes'].feccandid}}</span></p>
+          <p>first_elected:<span class="rep-attribute">{{rep['@attributes'].first_elected}}</span></p>
+          <p>firstlast:<span class="rep-attribute">{{rep['@attributes'].firstlast}}</span></p>
+          <p>gender:<span class="rep-attribute">{{rep['@attributes'].gender}}</span></p>
+          <p>lastname:<span class="rep-attribute">{{rep['@attributes'].lastname}}</span></p>
+          <p>office:<span class="rep-attribute">{{rep['@attributes'].office}}</span></p>
+          <p>party:<span class="rep-attribute">{{rep['@attributes'].party}}</span></p>
+          <p>phone:<span class="rep-attribute">{{rep['@attributes'].phone}}</span></p>
+          <p>twitter_id:<span class="rep-attribute">{{rep['@attributes'].twitter_id}}</span></p>
+          <p>votesmart_id:<span class="rep-attribute">{{rep['@attributes'].votesmart_id}}</span></p>
+          <p>webform:<span class="rep-attribute">{{rep['@attributes'].webform}}</span></p>
+          <p>website:<span class="rep-attribute">{{rep['@attributes'].website}}</span></p>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
