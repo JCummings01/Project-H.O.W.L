@@ -66,7 +66,7 @@ angular.module('starter.controllers', [])
     console.log('received via stateSelector click', state)
     $http.get(osLegUrl + state + apiKey + '&output=json')
     .success(function (data, status, headers, config) {
-      console.log('data success', data.response.legislator)
+      console.log('data success', typeof data.response.legislator[0]['@attributes'].party)
       $scope.reps = data.response.legislator // for UI
     })
     .error(function (data, status, headers, config) {
