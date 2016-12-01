@@ -1,4 +1,4 @@
-<ion-view view-title="Reps">
+<ion-view view-title="HOWL">
   <ion-content>
     <ion-list>
       <div class="card" ng-repeat="rep in reps" ng-click="repSelector(rep)">
@@ -9,30 +9,64 @@
         </div>
         <div class="item item-text-wrap">
           <!-- <p>bioguide_id:<span class="rep-attribute">{{rep['@attributes'].bioguide_id}}</span></p> -->
-          <p>birthdate:<span class="rep-attribute">{{rep['@attributes'].birthdate}}</span></p>
+          <!-- <p>birthdate:<span class="rep-attribute">{{rep['@attributes'].birthdate}}</span></p> -->
           <!-- <p>cid:<span class="rep-attribute">{{rep['@attributes'].cid}}</span></p> -->
-          <p ng-if="rep['@attributes'].comments != 0">comments:<span class="rep-attribute">{{rep['@attributes'].comments}}</span></p>
-          <p>congress_office:<span class="rep-attribute">{{rep['@attributes'].congress_office}}</span></p>
+          <!-- <p ng-if="rep['@attributes'].comments != 0">comments:<span class="rep-attribute">{{rep['@attributes'].comments}}</span></p> -->
+          <!-- <p>congress_office:<span class="rep-attribute">{{rep['@attributes'].congress_office}}</span></p> -->
           <!-- <p>exit_code:<span class="rep-attribute">{{rep['@attributes'].exit_code}}</span></p> -->
 <!-- TODO: ADD FACEBOOK MESSAGING FUNCTIONALITY -->
-          <p>facebook_id:<span class="rep-attribute">{{rep['@attributes'].facebook_id}}</span></p>
-<!-- TODO: ADD EFAX FUNCTIONALITY -->
-          <p>fax:<span class="rep-attribute">{{rep['@attributes'].fax}}</span></p>
+          <!-- <p>facebook_id:<span class="rep-attribute">{{rep['@attributes'].facebook_id}}</span></p> -->
+<!-- TODO: ADD EFAX FUNCTIONALITY? -->
+          <!-- <p>fax:<span class="rep-attribute">{{rep['@attributes'].fax}}</span></p> -->
 <!-- TODO: ADD CAMPAIGN FINANCE FUNCTIONALITY & DATA -->
-          <p>feccandid:<span class="rep-attribute">{{rep['@attributes'].feccandid}}</span></p>
-          <p>first_elected:<span class="rep-attribute">{{rep['@attributes'].first_elected}}</span></p>
+          <!-- <p>feccandid:<span class="rep-attribute">{{rep['@attributes'].feccandid}}</span></p> -->
+          <!-- <p>first_elected:<span class="rep-attribute">{{rep['@attributes'].first_elected}}</span></p> -->
           <!-- <p>gender:<span class="rep-attribute">{{rep['@attributes'].gender}}</span></p> -->
           <!-- <p>lastname:<span class="rep-attribute">{{rep['@attributes'].lastname}}</span></p> -->
           <!-- <p>office:<span class="rep-attribute">{{rep['@attributes'].office}}</span></p> -->
 <!-- TODO: ADD DIALING -->
-          <p>phone:<span class="rep-attribute">{{rep['@attributes'].phone}}</span></p>
+          <!-- <p>phone:<span class="rep-attribute">{{rep['@attributes'].phone}}</span></p> -->
 <!-- TODO: ADD TWEET@REP FUNCTIONALITY -->
-          <p>twitter_id:<span class="rep-attribute">{{rep['@attributes'].twitter_id}}</span></p>
+          <!-- <p>twitter_id:<span class="rep-attribute">{{rep['@attributes'].twitter_id}}</span></p> -->
 <!-- TODO: ADD SEE-REP-VOTES FUNCTIONALITY -->
-          <p>votesmart_id:<span class="rep-attribute">{{rep['@attributes'].votesmart_id}}</span></p>
-          <p ng-if="rep['@attributes'].webform != 0">webform:<span class="rep-attribute">{{rep['@attributes'].webform}}</span></p>
-          <p>website:<span class="rep-attribute">{{rep['@attributes'].website}}</span></p>
+          <!-- <p>votesmart_id:<span class="rep-attribute">{{rep['@attributes'].votesmart_id}}</span></p> -->
+          <!-- <p ng-if="rep['@attributes'].webform != 0">webform:<span class="rep-attribute">{{rep['@attributes'].webform}}</span></p> -->
+          <!-- <p>website:<span class="rep-attribute">{{rep['@attributes'].website}}</span></p> -->
+        <!-- </div> -->
+        <div class="row">
+          <div class="action-button" style="z-index: 100;">
+            <i class="ion-social-twitter-outline"></i>
+            @{{rep['@attributes'].twitter_id}}
+            <p class="share-detail">
+              "I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?"
+            </p>
+          </div>
+          <div class="action-button" style="z-index: 100;">
+            <i class="ion-social-facebook-outline"></i>
+            {{rep['@attributes'].firstlast}}
+            <p class="share-detail">
+              "I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?"
+            </p>
+          </div>
         </div>
+        <div class="row">
+          <div class="action-button" style="margin-top: 12px;">
+            <i class="ion-ios-telephone-outline"></i>
+            {{rep['@attributes'].phone}}
+            <p class="share-detail">
+              "I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?"
+            </p>
+          </div>
+          <div class="action-button" style="margin-top: 12px;">
+            <i class="ion-ios-email-outline"></i>
+            OTHER
+            <p class="share-detail">
+              "I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?"
+            </p>
+          </div>
+        </div>
+       </div>
+
       </div>
     </ion-list>
   </ion-content>

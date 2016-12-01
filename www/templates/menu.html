@@ -8,34 +8,28 @@
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
       </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <button ng-click="showScript()" class="button icon script ion-ios-paper-outline"></button>
+      </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">States</h1>
+      <h1 class="title"></h1>
     </ion-header-bar>
     <ion-content>
         <ion-list>
-          <ion-item class="state-list-item" ng-repeat="state in states" ng-click="stateSelector(state.abbrev)">
+          <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/the_plan’, ‘_system’)">The Plan</ion-item>
+          <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/revolution’, ‘_system’)">Membership</ion-item>
+          <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/donate’, ‘_system’)">Donate</ion-item>
+          <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/volunteer’, ‘_system’)">Volunteer</ion-item>
+          <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/petition’, ‘_system’)">Sign Petition</ion-item>
+          <ion-item menu-close class="state-list-item" ng-repeat="state in states" ng-click="stateSelector(state.abbrev)">
             {{state.state}}
           </ion-item>
         </ion-list>
-      <!-- <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
-        </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
-        </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          States
-        </ion-item>
-      </ion-list> -->
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>

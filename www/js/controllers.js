@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout, $http) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout, $http, $ionicPlatform, $ionicLoading, $twitterApi, $cordovaAppAvailability, $ionicActionSheet) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -8,7 +8,9 @@ angular.module('starter.controllers', [])
   // $scope.$on('$ionicView.enter', function(e) {
   // });
   var apiKey = '&apikey=ece3e4fd5f1ad6247f8551a0206c6c41'
+  var candId
   var osLegUrl = 'https://www.opensecrets.org/api/?method=getLegislators&id='
+  var osCandUrl = 'http://www.opensecrets.org/api/?method=candIndustry&cid=' + candId + '&cycle=2016&apikey='
   $scope.states = [
     {'state': 'Alabama', 'abbrev': 'AL'},
     {'state': 'Alaska', 'abbrev': 'AK'},
@@ -62,11 +64,50 @@ angular.module('starter.controllers', [])
     {'state': 'Wyoming', 'abbrev': 'WY'}
   ]
 
+  $scope.show = function () {
+    $ionicLoading.show({
+      template: 'Loading...',
+      duration: 3000
+    }).then(function () {
+      console.log('The loading indicator is now displayed')
+    })
+  }
+  $scope.hide = function () {
+    $ionicLoading.hide().then(function () {
+      console.log('The loading indicator is now hidden')
+    })
+  }
+
+  $scope.showScript = function () {
+    // Show the action sheet
+    var hideSheet = $ionicActionSheet.show({
+      // buttons: [
+      //  { text: '<b>Share</b> This' },
+      //  { text: 'Move' }
+      // ],
+      // destructiveText: 'Delete',
+      titleText: 'Hi Representative/Senator, Im a citizen of your state and Id like to talk to you about an important resolution that aims to fix the corruption happening in Washington, D.C. by restoring Free and Fair Elections in America. The purpose of this Resolution is to clean up our election system so that the voices of average Americans don’t continue to be drowned out by big money and special interests. Is this an issue you care about? Thank you. This Resolution calls for an amendment to our U.S. Constitution because we need to solve this problem for the long run. Since Congress is incapable of solving any problem, let alone this one, we are working to get this amendment through our state legislatures, which is why I’m talking to you! I trust you much more than Congress. The resolution calls for an amendment convention to propose an amendment that would deal with the influence of money in our political system. A national convention is the way for us to go around Congress and get an amendment ourselves without relying on them, nor waiting around for them. Do you think there is any part of our election system that could work better for the average American?',
+      cancelText: 'Cancel',
+      cancel: function () {
+          // add cancel code..
+      },
+      buttonClicked: function (index) {
+        return true
+      }
+    })
+
+   // For example's sake, hide the sheet after two seconds
+   // TODO: REMOVE TIMEOUT AND CLOSE WHEN USER CLICKS ELSEWHERE
+    $timeout(function () {
+      hideSheet()
+    }, 2000)
+  }
+
   $scope.stateSelector = function (state) {
     console.log('received via stateSelector click', state)
     $http.get(osLegUrl + state + apiKey + '&output=json')
     .success(function (data, status, headers, config) {
-      console.log('data success', typeof data.response.legislator[0]['@attributes'].party)
+      console.log('data success', data.response.legislator[0]['@attributes'])
       $scope.reps = data.response.legislator // for UI
     })
     .error(function (data, status, headers, config) {
@@ -107,6 +148,65 @@ angular.module('starter.controllers', [])
       $scope.closeLogin()
     }, 1000)
   }
+
+  // Twitter integration
+  $ionicPlatform.ready(function () {
+    var clientId = 'wldaNMRllRJ3N3LwTgnxkEjjq'
+    var clientSecret = 'ScmgRGi3s94Y5RH8uU1FYpmnn78pBlAJH6BVGqEBghajespyEj'
+
+    // $cordovaOauth.twitter(clientId, clientSecret).then(function (succ) {
+    //   $twitterApi.configure(clientId, clientSecret, succ)
+    // }, function (error) {
+    //   console.log('error from Oauth twitter function', error)
+    // })
+
+    // IONIC DEVICE SCHEME
+    var deviceInformation = ionic.Platform.device()
+
+    var isWebView = ionic.Platform.isWebView()
+    var isIPad = ionic.Platform.isIPad()
+    var isIOS = ionic.Platform.isIOS()
+    var isAndroid = ionic.Platform.isAndroid()
+    var isWindowsPhone = ionic.Platform.isWindowsPhone()
+
+    var currentPlatform = ionic.Platform.platform()
+    var currentPlatformVersion = ionic.Platform.version()
+
+    // CORDOVA DEVICE SCHEME
+    // var scheme
+
+    // Don't forget to add the cordova-plugin-device plugin for `device.platform`
+    // if (device.platform === 'iOS') {
+    //   scheme = 'twitter://'
+    // }
+    // else if (device.platform === 'Android') {
+    //   scheme = 'com.twitter.android'
+    // }
+
+    // appAvailability.check(
+    //   scheme,       // URI Scheme or Package Name
+    //   function () {  // Success callback
+    //     console.log(scheme + ' is available :)')
+    //   },
+    //   function () {  // Error callback
+    //     console.log(scheme + ' is not available :(')
+    //   }
+    // )
+
+    // $cordovaAppAvailability.check('twitter://')
+    //   .then(function () {
+    //     // is available
+    //   }, function () {
+    //     // not available
+    //   })
+
+    // $cordovaAppAvailability.check('fb://')
+    //   .then(function () {
+    //     // is available
+    //   }, function () {
+    //     // not available
+    //   })
+  })
 })
 
 .controller('RepsCtrl', function ($scope) {
