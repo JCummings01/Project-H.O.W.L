@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout, $http, $ionicPlatform, $ionicLoading, $twitterApi, $cordovaAppAvailability, $ionicActionSheet) {
+.controller('AppCtrl', function (api, $scope, $state, $ionicModal, $timeout, $http, $ionicPlatform, $ionicLoading, $twitterApi, $cordovaAppAvailability, $ionicActionSheet) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -8,9 +8,11 @@ angular.module('starter.controllers', [])
   // $scope.$on('$ionicView.enter', function(e) {
   // });
   var apiKey = '&apikey=ece3e4fd5f1ad6247f8551a0206c6c41'
-  var candId
+  var apiKey2 = '&apikey=e7ef140f90ae825cd6b374b61953491a'
+  // var candId
   var osLegUrl = 'https://www.opensecrets.org/api/?method=getLegislators&id='
-  var osCandUrl = 'http://www.opensecrets.org/api/?method=candIndustry&cid=' + candId + '&cycle=2016&apikey='
+  var osCandUrl = 'http://www.opensecrets.org/api/?method=candIndustry&cid='
+  $scope.currentState
   $scope.states = [
     {'state': 'Alabama', 'abbrev': 'AL'},
     {'state': 'Alaska', 'abbrev': 'AK'},
@@ -64,6 +66,7 @@ angular.module('starter.controllers', [])
     {'state': 'Wyoming', 'abbrev': 'WY'}
   ]
 
+  // LOADING SPINNER
   $scope.show = function () {
     $ionicLoading.show({
       template: 'Loading...',
@@ -78,6 +81,7 @@ angular.module('starter.controllers', [])
     })
   }
 
+  // ACTION SHEET POPUP FOR SCRIPT
   $scope.showScript = function () {
     // Show the action sheet
     var hideSheet = $ionicActionSheet.show({
@@ -98,24 +102,53 @@ angular.module('starter.controllers', [])
 
    // For example's sake, hide the sheet after two seconds
    // TODO: REMOVE TIMEOUT AND CLOSE WHEN USER CLICKS ELSEWHERE
-    $timeout(function () {
-      hideSheet()
-    }, 2000)
+    // $timeout(function () {
+    //   hideSheet()
+    // }, 2000)
   }
 
   $scope.stateSelector = function (state) {
+    $state.go('app.reps')
+    // SHOW LOADING SPINNER
+    $scope.show($ionicLoading);
     console.log('received via stateSelector click', state)
-    $http.get(osLegUrl + state + apiKey + '&output=json')
-    .success(function (data, status, headers, config) {
-      console.log('data success', data.response.legislator[0]['@attributes'])
-      $scope.reps = data.response.legislator // for UI
-    })
-    .error(function (data, status, headers, config) {
-      console.log('data error')
-    })
-    // .then(function(result){
-    //   things = result.data;
-    // });
+    $scope.currentState = state.state
+    $http.get(osLegUrl + state.abbrev + apiKey + '&output=json')
+      .success(function (data, status, headers, config) {
+        console.log('data success', data.response.legislator[0]['@attributes'])
+        $scope.reps = data.response.legislator // for UI
+      })
+      .error(function (data, status, headers, config) {
+        console.log('data error')
+      })
+      .then(function(result){
+        console.log('then function after get reps...this work?', result.data.response.legislator)
+        // for (var i = 0; i < result.data.response.legislator.length; i++) {
+        //   console.log('loop working?', result.data.response.legislator[i]['@attributes'].cid)
+        //   var candidateId = result.data.response.legislator[i]['@attributes'].cid
+        api.getIndustries(result)
+          .then(function(result) {
+            console.log('results in Controller from Industry factory call', result)
+            $scope.repSectors = result
+            var graphData = []
+            var graphLabels = []
+            for (var i = 0; i < result.length; i++){
+              graphData.push(result[i].total)
+              graphLabels.push(result[i].sector_name)
+            }
+            // console.log('graph data', graphData)
+            // console.log('graph labels', graphLabels)
+            // $scope.repInd = graphLabels
+            // $scope.indAmt = graphData
+
+            // $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+            // $scope.data = result[].total;
+            })
+            $scope.hide($ionicLoading);
+            // $scope.repInd = graphLabels
+            // $scope.indAmt = graphData
+                // })
+      });
   }
 
   // Form data for the login modal
@@ -148,6 +181,13 @@ angular.module('starter.controllers', [])
       $scope.closeLogin()
     }, 1000)
   }
+
+  // $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  //   // $scope.series = ['Series A', 'Series B'];
+  //   $scope.data = [
+  //       [65, 59, 80, 81, 56, 55, 40]
+  //       // [28, 48, 40, 19, 86, 27, 90]
+  //   ];
 
   // Twitter integration
   $ionicPlatform.ready(function () {
@@ -207,12 +247,14 @@ angular.module('starter.controllers', [])
     //     // not available
     //   })
   })
+
+
 })
 
-.controller('RepsCtrl', function ($scope) {
-  $scope.getReps = function () {
+.controller('RepsCtrl', function ($scope, $state) {
+  // $scope.getReps = function () {
 
-  }
+  // }
 })
 
 .controller('PlaylistCtrl', function ($scope, $stateParams) {

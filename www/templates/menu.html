@@ -26,7 +26,7 @@
           <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/donate’, ‘_system’)">Donate</ion-item>
           <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/volunteer’, ‘_system’)">Volunteer</ion-item>
           <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/petition’, ‘_system’)">Sign Petition</ion-item>
-          <ion-item menu-close class="state-list-item" ng-repeat="state in states" ng-click="stateSelector(state.abbrev)">
+          <ion-item menu-close class="state-list-item" ng-repeat="state in states" ng-click="stateSelector(state)">
             {{state.state}}
           </ion-item>
         </ion-list>

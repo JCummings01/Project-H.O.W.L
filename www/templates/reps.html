@@ -1,13 +1,35 @@
-<ion-view view-title="HOWL">
+<ion-view view-title="{{currentState}}">
   <ion-content>
     <ion-list>
-      <div class="card" ng-repeat="rep in reps" ng-click="repSelector(rep)">
-        <div class="item item-avatar">
-          <img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">
-          <p ng-class="'rep-' + rep['@attributes'].party"><span class="rep-attribute">{{rep['@attributes'].firstlast}}</span></p>
-          <!-- <p><span class="rep-attribute">{{rep['@attributes'].party}}</span></p> -->
-        </div>
+      <div ng-class="'rep-' + rep['@attributes'].party" class="card" ng-repeat="rep in reps" ng-click="repSelector(rep)">
         <div class="item item-text-wrap">
+          <div class="item-avatar">
+            <img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">
+          </div>
+          <div class="item rep-header">
+            <div class="rep-name">
+              <span class="firstlast">{{rep['@attributes'].firstlast}}</span>
+              <p class="rep-attribute">Time in office: <span class="rep-time">{{2016 - rep['@attributes'].first_elected}} years ({{rep['@attributes'].first_elected}})</span></p> 
+               <!--<div class="item item-text-wrap">-->
+                <!--<canvas id="polar-area" class="chart chart-polar-area" data="data" labels="labels" legend="true" options="{showTooltips: false}"></canvas>-->
+              <!--</div>-->
+              <!--<div class="item item-text-wrap">-->
+              <!--<canvas id="radar" class="chart chart-radar" data="indAmt" labels="repInd" legend="true" options="{showTooltips: false}"></canvas>-->
+              <!--</div>-->
+              <div class="sectors">
+                <div class="sector-data" ng-repeat="sector in repSectors | filter: { repNum: rep['@attributes'].cid}">
+                  <!--<p>Individuals: {{sector.indivs}}</p>-->
+                  <!--<p>PACS: {{sector.pacs}}</p>-->
+                  <div class="sector-info">
+                    <p class="" style="">{{sector.sector_name}}</p>
+                    <p class="" style="">${{sector.total}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <p><span class="rep-attribute">{{rep['@attributes'].party}}</span></p> -->
+          </div>
+        
           <!-- <p>bioguide_id:<span class="rep-attribute">{{rep['@attributes'].bioguide_id}}</span></p> -->
           <!-- <p>birthdate:<span class="rep-attribute">{{rep['@attributes'].birthdate}}</span></p> -->
           <!-- <p>cid:<span class="rep-attribute">{{rep['@attributes'].cid}}</span></p> -->
@@ -20,7 +42,6 @@
           <!-- <p>fax:<span class="rep-attribute">{{rep['@attributes'].fax}}</span></p> -->
 <!-- TODO: ADD CAMPAIGN FINANCE FUNCTIONALITY & DATA -->
           <!-- <p>feccandid:<span class="rep-attribute">{{rep['@attributes'].feccandid}}</span></p> -->
-          <!-- <p>first_elected:<span class="rep-attribute">{{rep['@attributes'].first_elected}}</span></p> -->
           <!-- <p>gender:<span class="rep-attribute">{{rep['@attributes'].gender}}</span></p> -->
           <!-- <p>lastname:<span class="rep-attribute">{{rep['@attributes'].lastname}}</span></p> -->
           <!-- <p>office:<span class="rep-attribute">{{rep['@attributes'].office}}</span></p> -->
