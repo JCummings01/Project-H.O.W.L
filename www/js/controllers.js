@@ -122,34 +122,28 @@ angular.module('starter.controllers', [])
         console.log('data error')
       })
       .then(function(result){
-        console.log('then function after get reps...this work?', result.data.response.legislator)
+        // console.log('then function after get reps...this work?', result.data.response.legislator)
         // for (var i = 0; i < result.data.response.legislator.length; i++) {
-        //   console.log('loop working?', result.data.response.legislator[i]['@attributes'].cid)
         //   var candidateId = result.data.response.legislator[i]['@attributes'].cid
         api.getIndustries(result)
           .then(function(result) {
             console.log('results in Controller from Industry factory call', result)
             $scope.repSectors = result
-            var graphData = []
-            var graphLabels = []
-            for (var i = 0; i < result.length; i++){
-              graphData.push(result[i].total)
-              graphLabels.push(result[i].sector_name)
-            }
-            // console.log('graph data', graphData)
-            // console.log('graph labels', graphLabels)
-            // $scope.repInd = graphLabels
-            // $scope.indAmt = graphData
-
-            // $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-            // $scope.data = result[].total;
             })
-            $scope.hide($ionicLoading);
-            // $scope.repInd = graphLabels
-            // $scope.indAmt = graphData
-                // })
       });
+      $scope.hide($ionicLoading);
   }
+
+  $scope.labels = ["Agribusiness", "Communic/Electronics", "Construction", "New", "Old", "Telecom", "Lobbyists"];
+  $scope.data = [246439,8000,27350,5000,5000,11000,15000];
+  $scope.options = {
+  //     tooltipEvents: [],
+      showTooltips: false,
+  //     tooltipCaretSize: 0,
+  //     onAnimationComplete: function () {
+  //         this.showTooltip(this.segments, true);
+  //     },
+  };
 
   // Form data for the login modal
   $scope.loginData = {}

@@ -21,8 +21,8 @@
 
   function api ($http, $q, $timeout) {
     var factory = {}
-    var apiKey2 = '&apikey=ece3e4fd5f1ad6247f8551a0206c6c41'
-    var apiKey = '&apikey=e7ef140f90ae825cd6b374b61953491a'
+    var apiKey = '&apikey=ece3e4fd5f1ad6247f8551a0206c6c41'
+    var apiKey1 = '&apikey=e7ef140f90ae825cd6b374b61953491a'
     var osCandUrl = 'http://www.opensecrets.org/api/?method=candIndustry&cid='
     var osSectUrl = 'http://www.opensecrets.org/api/?method=candSector&cid='
 
@@ -38,7 +38,6 @@
                 var repNum = data.response.sectors['@attributes'].cid
                 for (var j = 0; j < data.response.sectors.sector.length; j++) {
                     var totalNum = Number(data.response.sectors.sector[j]['@attributes'].total).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})
-                    console.log(typeof totalNum)
                     industriesPerRep.push({
                         repNum: data.response.sectors['@attributes'].cid,
                         indivs: data.response.sectors.sector[j]['@attributes'].indivs,
@@ -48,7 +47,7 @@
                         total: totalNum
                     })
                 }
-                console.log('industriesPerRep', industriesPerRep)
+                // console.log('industriesPerRep', industriesPerRep)
                 defer.resolve(industriesPerRep)
             })
             .error(function (data, status, headers, config) {

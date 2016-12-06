@@ -68,7 +68,7 @@
     left: 0 !important;
 }
 .sectors {
-    height: 350px;
+    height: 400px;
     overflow: scroll;
 }
 .sector-data {
@@ -190,4 +190,26 @@ ion-header-bar {
 
 .home-wall {
     background: url('/img/capitol.jpg') no-repeat center center;
+}
+
+.pie-legend li,
+.doughnut-legend li {
+    display: flex;
+    font-size: 11px;
+}
+
+.doughnut-legend {
+    padding-left: 0 !important;
+}
+
+.pie-legend li span,
+.doughnut-legend li span {
+  /*display: block;*/
+  left: 0;
+  top: 0;
+  width: 50%;
+  /*padding-left: 0 !important;*/
+  /*height: 5px;*/
+  /*margin-right: 5px;*/
+  /*border-radius: 5px;*/
 }
