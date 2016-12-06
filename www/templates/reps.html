@@ -17,6 +17,11 @@
               <!--<canvas id="radar" class="chart chart-radar" data="indAmt" labels="repInd" legend="true" options="{showTooltips: false}"></canvas>-->
               <!--</div>-->
               <div class="sectors">
+                <div class="row camp-fin-row">
+                  <div class="col-25 spacer"></div>
+                  <div class="col-50 camp-fin">CAMPAIGN CONTRIBUTIONS</div>
+                  <div class="col-25 spacer"></div>
+                </div>
                 <div class="sector-data" ng-repeat="sector in repSectors | filter: { repNum: rep['@attributes'].cid}">
                   <!--<p>Individuals: {{sector.indivs}}</p>-->
                   <!--<p>PACS: {{sector.pacs}}</p>-->

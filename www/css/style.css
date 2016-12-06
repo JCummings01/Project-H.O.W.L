@@ -68,11 +68,22 @@
     left: 0 !important;
 }
 .sectors {
-    height: 400px;
+    height: 350px;
     overflow: scroll;
 }
 .sector-data {
     height: 25px;
+}
+.camp-fin {
+    align-items: center;
+    font-size: 11px;
+}
+.camp-fin-row {
+    align-items: center;
+}
+.spacer {
+    height: 1px;
+    background-color: #ccc;
 }
 /*.rep-D {
     color: rgba(0,118,215,1) !important;

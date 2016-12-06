@@ -26,17 +26,6 @@
     var osCandUrl = 'http://www.opensecrets.org/api/?method=candIndustry&cid='
     var osSectUrl = 'http://www.opensecrets.org/api/?method=candSector&cid='
 
-    // factory.formatMoney = function(c, d, t) {
-    //     var n = this, 
-    //     c = isNaN(c = Math.abs(c)) ? 2 : c, 
-    //     d = d == undefined ? "." : d, 
-    //     t = t == undefined ? "," : t, 
-    //     s = n < 0 ? "-" : "", 
-    //     i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
-    //     j = (j = i.length) > 3 ? j % 3 : 0;
-    //     return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
-    // };
-
     factory.getIndustries = function(reps) {
      var defer = $q.defer()
      var industriesPerRep = []
@@ -49,7 +38,6 @@
                 var repNum = data.response.sectors['@attributes'].cid
                 for (var j = 0; j < data.response.sectors.sector.length; j++) {
                     var totalNum = Number(data.response.sectors.sector[j]['@attributes'].total).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})
-                    // var test = totalNum
                     console.log(typeof totalNum)
                     industriesPerRep.push({
                         repNum: data.response.sectors['@attributes'].cid,
@@ -59,8 +47,8 @@
                         sectorid: data.response.sectors.sector[j]['@attributes'].sectorid,
                         total: totalNum
                     })
-                    // console.log('repData each loop', industriesPerRep)
                 }
+                console.log('industriesPerRep', industriesPerRep)
                 defer.resolve(industriesPerRep)
             })
             .error(function (data, status, headers, config) {
