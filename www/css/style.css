@@ -9,22 +9,26 @@
     background-color: #0066ba;
     border-color: #97c5ed;
 }
+
 .title {
     font-family: 'Source Sans Pro', sans-serif;
     text-transform: uppercase;
     font-size: 8.75px;
     letter-spacing: 3px;
 }
+
 .title-left {
     left: 0px !important;
     right: 0px !important;
     text-align: center !important;
 }
+
 .rep-header {
     padding-right: 0;
     padding-left: 0;
     border: none !important;
 }
+
 .rep-name {
     border-right: 1px solid rgba(0, 0, 0, 0.3);
     border-left: 1px solid rgba(0, 0, 0, 0.3);
@@ -34,6 +38,7 @@
     /*height: 40px;*/
     padding: 11px 9px 9px 9px;
 }
+
 .rep-attribute {
     text-align: left;
     font-family: 'Source Sans Pro';
@@ -42,14 +47,17 @@
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+
 .rep-attribute .rep-time {
     float: right;
     font-weight: 400;
 }
+
 .sector-info {
     display: flex;
     justify-content: space-between;
 }
+
 .sector-info p {
     font-family: 'Source Sans Pro';
     font-size: 11px;
@@ -57,37 +65,46 @@
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+
 .item-avatar {
     display: flex;
     justify-content: center;
     padding-left: 0;
-    padding-bottom: 12px;
+    padding-bottom: 0;
 }
+
 .item-avatar img {
     position: relative !important;
     max-width: 125px !important;
     max-height: 125px !important;
     top: 0 !important;
     left: 0 !important;
+    margin-top: -70.5px;
 }
+
 .sectors {
     height: 400px;
     overflow: scroll;
 }
+
 .sector-data {
     height: 25px;
 }
+
 .camp-fin {
     align-items: center;
     font-size: 11px;
 }
+
 .camp-fin-row {
     align-items: center;
 }
+
 .spacer {
     height: 1px;
     background-color: #ccc;
 }
+
 /*.rep-D {
     color: rgba(0,118,215,1) !important;
 }
@@ -99,14 +116,15 @@
 
 .firstlast {
     font-family: 'Josefin Sans';
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1px;
     text-align: center;
-    /*width: 100%;*/
 }
+
 .namespace {
     border-bottom: 1px solid rgba(0,0,0,0.3);
 }
+
 .pac-links {
     text-align: center;
     font-family: 'Oswald';
@@ -115,8 +133,8 @@
     text-transform: uppercase;
     color: #00457d;
 }
+
 .action-button {
-    /*height: 172.50px;*/
     text-align: center;
     font-family: 'Oswald';
     text-transform: uppercase;
@@ -139,12 +157,11 @@
 
  .action-button i {
      font-size: 24px;
-     /*line-height: 40px;*/
 }
 
 .card {
-    margin: 0;
-    height: calc(100vh - 44px)
+    margin: 119px 10px 10px 10px;
+    height: calc(100vh - 129px)
 }
 
 .card .row {
@@ -153,17 +170,16 @@
     justify-content: space-between;
 }
 
-.list {
-    background-color: rgba(255,255,255,0.85);
-    padding-top: 44px;
-}
-
 .rep-card {
-    background-color: transparent;
+    background-color: rgba(255,255,255,0.85);
 }
 
 .item {
     background-color: transparent;
+}
+
+.item-avatar {
+    min-height: 59px;
 }
 
 .bar-stable .button {
@@ -171,14 +187,8 @@
     background-color: transparent;
 }
 
-/*.scroll-content {
-    background-color: #f1f3f2;
-    background-color: #f8f8f8;
-}*/
-
 .has-header {
     top: 0px;
-    /*padding-top: 44px;*/
 }
 
 .script {
@@ -190,8 +200,7 @@
 
 ion-header-bar {
     border: none !important;
-    background-color: transparent !important;
-    /*background-color: rgba(255,255,255,0.6) !important;*/
+    background: none !important;
 }
 
 .rep-wall {
@@ -276,4 +285,10 @@ view-title {
 
 .menu-open .menu-content {
     transform: translate3d(175px, 0px, 0px) !important;
+}
+
+.item-text-wrap {
+    padding-top: 8px;
+    position: absolute;
+    left: 0;
 }

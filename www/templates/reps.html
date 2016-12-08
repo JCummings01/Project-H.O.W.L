@@ -1,7 +1,7 @@
 <ion-view view-title="{{currentState}}">
   <ion-content class="rep-wall">
-    <ion-list>
-      <div ng-class="'rep-' + rep['@attributes'].party" class="card rep-card" ng-repeat="rep in reps" ng-click="repSelector(rep)">
+    <ion-list ng-repeat="rep in reps track by $index">
+      <div ng-class="'rep-' + rep['@attributes'].party" class="card rep-card" ng-click="repSelector(rep)">
         <div class="item item-text-wrap">
           <div class="item-avatar">
             <img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">
