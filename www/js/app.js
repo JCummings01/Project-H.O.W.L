@@ -7,6 +7,8 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordovaOauth', 'ngTwitter', 'chart.js'])
 
 .run(function ($ionicPlatform) {
+  var clientId = 'wldaNMRllRJ3N3LwTgnxkEjjq'
+  var clientSecret = 'ScmgRGi3s94Y5RH8uU1FYpmnn78pBlAJH6BVGqEBghajespyEj'
   $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -32,14 +34,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
       controller: 'AppCtrl'
     })
 
-  .state('app.home', {
-    url: '/home',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/home.html'
-      }
-    }
-  })
+  // .state('app.home', {
+  //   url: '/home',
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: 'templates/home.html'
+  //     }
+  //   }
+  // })
 
   .state('app.browse', {
     url: '/browse',
@@ -59,5 +61,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
       }
     })
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/home')
+  $urlRouterProvider.otherwise('/app/reps')
 })

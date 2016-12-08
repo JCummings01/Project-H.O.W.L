@@ -23,13 +23,16 @@
 .rep-header {
     padding-right: 0;
     padding-left: 0;
+    border: none !important;
 }
 .rep-name {
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     text-align: center;
     position: relative;
     /*height: 40px;*/
-    padding: 9px;
+    padding: 11px 9px 9px 9px;
 }
 .rep-attribute {
     text-align: left;
@@ -94,19 +97,15 @@
 .rep-I {
     color: rgba(170,170,170,1) !important;*/
 
-.rep-name .firstlast {
+.firstlast {
     font-family: 'Josefin Sans';
     font-size: 18px;
-    /*text-transform: uppercase;*/
-    padding-left: 20px;
-    padding-right: 20px;
-    line-height: 18px;
-    position: absolute;
-    top: 0px;
-    margin-top: -9px;
-    background-color: white;
-    left: 50%;
-    margin-left: -64px;
+    line-height: 1px;
+    text-align: center;
+    /*width: 100%;*/
+}
+.namespace {
+    border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 .pac-links {
     text-align: center;
@@ -154,12 +153,17 @@
     justify-content: space-between;
 }
 
-.item {
+.list {
+    background-color: rgba(255,255,255,0.85);
+    padding-top: 44px;
+}
+
+.rep-card {
     background-color: transparent;
 }
 
-.rep-header {
-    border: none !important;
+.item {
+    background-color: transparent;
 }
 
 .bar-stable .button {
@@ -173,7 +177,8 @@
 }*/
 
 .has-header {
-    /*top: 0;*/
+    top: 0px;
+    /*padding-top: 44px;*/
 }
 
 .script {
@@ -186,30 +191,89 @@
 ion-header-bar {
     border: none !important;
     background-color: transparent !important;
+    /*background-color: rgba(255,255,255,0.6) !important;*/
 }
 
-.home-wall {
-    background: url('/img/capitol.jpg') no-repeat center center;
+.rep-wall {
+    background: url('../img/capitol.jpg') no-repeat center center;
 }
 
 .pie-legend li,
 .doughnut-legend li {
-    display: flex;
     font-size: 11px;
+}
+
+.sector-names {
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sector-1 {
+    color: #f53d3d;
+    font-family: 'Source Sans Pro';
+    text-transform: uppercase;
+    font-size: 9.75px;
+}
+.sector-2 {
+    color: #387ef5;
+    font-family: 'Source Sans Pro';
+    text-transform: uppercase;
+    font-size: 9.75px;
+}
+.sector-3 {
+    color: #32db64;
+    font-family: 'Source Sans Pro';
+    text-transform: uppercase;
+    font-size: 9.75px;
+}
+.sector-4 {
+    color: #444444;
+    font-family: 'Source Sans Pro';
+    text-transform: uppercase;
+    font-size: 9.75px;
+}
+.sector-5 {
+    color: #222222;
+    font-family: 'Source Sans Pro';
+    text-transform: uppercase;
+    font-size: 9.75px;
+}
+.sector-6 {
+    color: #69BB7B;
+    font-family: 'Source Sans Pro';
+    text-transform: uppercase;
+    font-size: 9.75px;
 }
 
 .doughnut-legend {
     padding-left: 0 !important;
 }
 
-.pie-legend li span,
-.doughnut-legend li span {
-  /*display: block;*/
-  left: 0;
-  top: 0;
-  width: 50%;
-  /*padding-left: 0 !important;*/
-  /*height: 5px;*/
-  /*margin-right: 5px;*/
-  /*border-radius: 5px;*/
+.howllogo {
+    background: url('../img/howllogo.png') no-repeat center center;
+    height: 50px;
+    background-size: contain;
+    transition: 0.5s;
+}
+
+view-title {
+    transition: 0.5s;
+}
+
+.script-block {
+    padding-bottom: 20px;
+    font-family: 'Oswald';
+    text-align: center;
+    font-weight: 300;
+}
+
+.script-text {
+    background-color: yellow;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.menu-open .menu-content {
+    transform: translate3d(175px, 0px, 0px) !important;
 }

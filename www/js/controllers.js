@@ -1,14 +1,15 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function (api, $scope, $state, $ionicModal, $timeout, $http, $ionicPlatform, $ionicLoading, $twitterApi, $cordovaAppAvailability, $ionicActionSheet) {
+.controller('AppCtrl', function (api, $scope, $state, $ionicModal, $timeout, $http, $ionicPlatform, $ionicLoading, $twitterApi, $cordovaAppAvailability, $ionicActionSheet, $cordovaOauth) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   // $scope.$on('$ionicView.enter', function(e) {
   // });
-  var apiKey = '&apikey=ece3e4fd5f1ad6247f8551a0206c6c41'
-  var apiKey2 = '&apikey=e7ef140f90ae825cd6b374b61953491a'
+  var apiKey2 = '&apikey=ece3e4fd5f1ad6247f8551a0206c6c41'
+  var apiKey = '&apikey=e7ef140f90ae825cd6b374b61953491a'
+  var fecApi = '7Zpw72AlGPGQFDML24Xj3lSfU3GBzEwfw327ztka'
   // var candId
   var osLegUrl = 'https://www.opensecrets.org/api/?method=getLegislators&id='
   var osCandUrl = 'http://www.opensecrets.org/api/?method=candIndustry&cid='
@@ -81,6 +82,15 @@ angular.module('starter.controllers', [])
     })
   }
 
+  $scope.sendTweet = function(rep) {
+    var url = 'https://twitter.com/intent/tweet/?text=%40' + rep + '%20I%E2%80%99d%20like%20to%20talk%20to%20you%20about%20restoring%20Free%20and%20Fair%20Elections%20in%20America.%20Is%20this%20an%20issue%20you%20care%20about%3F%20%40cenkuygur%20%40wolfpachq'
+    console.log('coming through tweet link?', rep)
+    // window.open(url, '_blank', 'location=no')
+    window.open(url, '_blank')
+}
+
+// $rootScope.$on('$cordovaInAppBrowser:exit', function(e, event));
+
   // ACTION SHEET POPUP FOR SCRIPT
   $scope.showScript = function () {
     // Show the action sheet
@@ -134,8 +144,11 @@ angular.module('starter.controllers', [])
       $scope.hide($ionicLoading);
   }
 
-  $scope.labels = ["Agribusiness", "Communic/Electronics", "Construction", "New", "Old", "Telecom", "Lobbyists"];
-  $scope.data = [246439,8000,27350,5000,5000,11000,15000];
+  // $scope.labels = ["Agribusiness", "Communic/Electronics", "Construction", "New", "Old", "Telecom", "Lobbyists"];
+  $scope.labels = ["", "", "", "", "", ""];
+  $scope.data = [[246439,8000,27350,5000,5000,11000]];
+  $scope.series = ["Campaign Contributions"];
+  $scope.colours = [{fillColor:['#f53d3d','#387ef5','#32db64','#444','#222','#69BB7B'], strokeColor:['#f53d3d','#387ef5','#32db64','#444','#222','#69BB7B']}];
   $scope.options = {
   //     tooltipEvents: [],
       showTooltips: false,
@@ -184,15 +197,22 @@ angular.module('starter.controllers', [])
   //   ];
 
   // Twitter integration
-  $ionicPlatform.ready(function () {
-    var clientId = 'wldaNMRllRJ3N3LwTgnxkEjjq'
-    var clientSecret = 'ScmgRGi3s94Y5RH8uU1FYpmnn78pBlAJH6BVGqEBghajespyEj'
+  var clientId = 'wldaNMRllRJ3N3LwTgnxkEjjq'
+  var clientSecret = 'ScmgRGi3s94Y5RH8uU1FYpmnn78pBlAJH6BVGqEBghajespyEj'
+  var myToken = ''
 
-    // $cordovaOauth.twitter(clientId, clientSecret).then(function (succ) {
-    //   $twitterApi.configure(clientId, clientSecret, succ)
-    // }, function (error) {
-    //   console.log('error from Oauth twitter function', error)
-    // })
+  $ionicPlatform.ready(function () {
+    // myToken = JSON.parse(window.localStorage.getItem(twitterKey));
+    // if (myToken === '' || myToken === null) {
+      $cordovaOauth.twitter(clientId, clientSecret).then(function (succ) {
+        console.log('twitter success msg', succ)
+        $twitterApi.configure(clientId, clientSecret, succ);
+          }, function(error) {
+            console.log('error from twitter auth',error);
+      });
+    // } else {
+    //   $twitterApi.configure(clientId, clientSecret, myToken);
+    // }
 
     // IONIC DEVICE SCHEME
     var deviceInformation = ionic.Platform.device()

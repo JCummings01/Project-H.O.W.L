@@ -26,42 +26,42 @@
     var osCandUrl = 'http://www.opensecrets.org/api/?method=candIndustry&cid='
     var osSectUrl = 'http://www.opensecrets.org/api/?method=candSector&cid='
 
-    factory.getIndustries = function(reps) {
-     var defer = $q.defer()
-     var industriesPerRep = []
-     for (var i = 0; i < reps.data.response.legislator.length; i++) {
-        console.log('loop working?', reps.data.response.legislator[i]['@attributes'].cid)
-        var candId = reps.data.response.legislator[i]['@attributes'].cid
-        $http.get(osSectUrl + candId + '&cycle=' + apiKey + '&output=json')
-            .success(function (data, status, headers, config) {
-                // console.log('data success on getIndustries', data)
-                var repNum = data.response.sectors['@attributes'].cid
-                for (var j = 0; j < data.response.sectors.sector.length; j++) {
-                    var totalNum = Number(data.response.sectors.sector[j]['@attributes'].total).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})
-                    industriesPerRep.push({
-                        repNum: data.response.sectors['@attributes'].cid,
-                        indivs: data.response.sectors.sector[j]['@attributes'].indivs,
-                        pacs: data.response.sectors.sector[j]['@attributes'].pacs,
-                        sector_name: data.response.sectors.sector[j]['@attributes'].sector_name,
-                        sectorid: data.response.sectors.sector[j]['@attributes'].sectorid,
-                        total: totalNum
-                    })
-                }
-                // console.log('industriesPerRep', industriesPerRep)
-                defer.resolve(industriesPerRep)
-            })
-            .error(function (data, status, headers, config) {
-                console.log('data error on getIndustries', data)
-                defer.resolve(data)
-            })
-            // .then(function(result){
-            // console.log('then function after get reps...this work?', result)
-            // things = result.data;
-            // });
-     }
-    return defer.promise
+//     factory.getIndustries = function(reps) {
+//      var defer = $q.defer()
+//      var industriesPerRep = []
+//      for (var i = 0; i < reps.data.response.legislator.length; i++) {
+//         console.log('loop working?', reps.data.response.legislator[i]['@attributes'].cid)
+//         var candId = reps.data.response.legislator[i]['@attributes'].cid
+//         $http.get(osSectUrl + candId + '&cycle=' + apiKey + '&output=json')
+//             .success(function (data, status, headers, config) {
+//                 // console.log('data success on getIndustries', data)
+//                 var repNum = data.response.sectors['@attributes'].cid
+//                 for (var j = 0; j < data.response.sectors.sector.length; j++) {
+//                     var totalNum = Number(data.response.sectors.sector[j]['@attributes'].total).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})
+//                     industriesPerRep.push({
+//                         repNum: data.response.sectors['@attributes'].cid,
+//                         indivs: data.response.sectors.sector[j]['@attributes'].indivs,
+//                         pacs: data.response.sectors.sector[j]['@attributes'].pacs,
+//                         sector_name: data.response.sectors.sector[j]['@attributes'].sector_name,
+//                         sectorid: data.response.sectors.sector[j]['@attributes'].sectorid,
+//                         total: totalNum
+//                     })
+//                 }
+//                 // console.log('industriesPerRep', industriesPerRep)
+//                 defer.resolve(industriesPerRep)
+//             })
+//             .error(function (data, status, headers, config) {
+//                 console.log('data error on getIndustries', data)
+//                 defer.resolve(data)
+//             })
+//             // .then(function(result){
+//             // console.log('then function after get reps...this work?', result)
+//             // things = result.data;
+//             // });
+//      }
+//     return defer.promise
     
-  }
+//   }
 
     return factory;
   }

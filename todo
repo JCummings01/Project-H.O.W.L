@@ -1,3 +1,0 @@
-- Hide API key externally
-- Change API calls to be made via cron job, then save to DB, then query db when needed
-- Add loading spinner to reps page (after user clicks on State and reps are loading)
