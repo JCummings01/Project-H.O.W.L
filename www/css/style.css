@@ -193,7 +193,7 @@
 }
 
 .rep-card {
-    background-color: rgba(255,255,255,0.85);
+    background-color: rgba(255,255,255,0.9);
 }
 
 .item {
@@ -226,8 +226,7 @@ ion-header-bar {
 }
 
 .rep-wall {
-    background: url('../img/capitol4.jpg') no-repeat center center;
-    /*opacity: 0.6;*/
+    background: url('../img/capitol3.jpg') no-repeat center center;
 }
 
 .pie-legend li,
