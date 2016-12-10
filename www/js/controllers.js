@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function (api, $scope, $state, $ionicModal, $timeout, $http, $ionicPlatform, $ionicLoading, $twitterApi, $cordovaAppAvailability, $ionicActionSheet, $cordovaOauth) {
+.controller('AppCtrl', function (api, $scope, $state, $ionicModal, $location, $document, $timeout, $http, $ionicPlatform, $ionicLoading, $twitterApi, $cordovaAppAvailability, $ionicActionSheet, $cordovaOauth, $ionicScrollDelegate, $ionicPosition) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -117,7 +117,21 @@ angular.module('starter.controllers', [])
     // }, 2000)
   }
 
+  $scope.scrollHelper = function(element) {
+    var duration = 2000; //milliseconds
+    var nextElement = parseInt(element + 1)
+    console.log('element index sent via click', nextElement)
+    // var offset = 120;
+    // var something = .position(angular.element(document.getElementById(nextElement)))
+    var repPosition = $ionicPosition.offset(angular.element(document.getElementById(nextElement)));
+    console.log('repPosition data', repPosition)
+    $ionicScrollDelegate.$getByHandle('rep-list').scrollTo(repPosition.left, repPosition.top, true);
+  }
+
   $scope.stateSelector = function (state) {
+    var myEl = angular.element( document.querySelector( '.title' ) );
+    myEl.addClass('animated');
+    myEl.addClass('fadeIn');
     $state.go('app.reps')
     // SHOW LOADING SPINNER
     $scope.show($ionicLoading);
@@ -204,12 +218,12 @@ angular.module('starter.controllers', [])
   $ionicPlatform.ready(function () {
     // myToken = JSON.parse(window.localStorage.getItem(twitterKey));
     // if (myToken === '' || myToken === null) {
-      $cordovaOauth.twitter(clientId, clientSecret).then(function (succ) {
-        console.log('twitter success msg', succ)
-        $twitterApi.configure(clientId, clientSecret, succ);
-          }, function(error) {
-            console.log('error from twitter auth',error);
-      });
+      // $cordovaOauth.twitter(clientId, clientSecret).then(function (succ) {
+      //   console.log('twitter success msg', succ)
+      //   $twitterApi.configure(clientId, clientSecret, succ);
+      //     }, function(error) {
+      //       console.log('error from twitter auth',error);
+      // });
     // } else {
     //   $twitterApi.configure(clientId, clientSecret, myToken);
     // }
@@ -261,7 +275,6 @@ angular.module('starter.controllers', [])
     //     // not available
     //   })
   })
-
 
 })
 

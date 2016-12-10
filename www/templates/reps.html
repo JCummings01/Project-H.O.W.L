@@ -1,8 +1,9 @@
-<ion-view view-title="{{currentState}}">
-  <ion-content class="rep-wall">
-    <ion-list ng-repeat="rep in reps track by $index">
-      <div ng-class="'rep-' + rep['@attributes'].party" class="card rep-card" ng-click="repSelector(rep)">
-        <div class="item item-text-wrap">
+<ion-view cache-view="false" view-title="{{currentState}}">
+  <ion-content class="rep-wall" delegate-handle="rep-list">
+    <ion-scroll>
+    <ion-list>
+      <div ng-repeat="rep in reps track by $index" ng-class="'rep-' + rep['@attributes'].party" class="card rep-card animated slideInUp" >
+        <div id="{{$index}}" class="item item-text-wrap">
           <div class="item-avatar">
             <img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">
           </div>
@@ -38,46 +39,20 @@
             <div class="col-50 firstlast">Send Via...</div>
             <div class="col-25 namespace"></div>
           </div>
-          <div class="rep-name">
-            <a href="#" ng-click="sendTweet(rep['@attributes'].twitter_id)">
-              <i class="ion-social-twitter-outline"></i>
-            @{{rep['@attributes'].twitter_id}}
-            </a>
+          <div class="rep-social">
+            <i class="ion-social-twitter-outline" ng-click="sendTweet(rep['@attributes'].twitter_id)"></i>
+            <!--@{{rep['@attributes'].twitter_id}}-->
             <i class="ion-social-facebook-outline"></i>
-            {{rep['@attributes'].firstlast}}
-            <i class="ion-ios-telephone-outline"></i>
-            {{rep['@attributes'].phone}}
+            <!--{{rep['@attributes'].firstlast}}-->
+            <!--<i class="ion-ios-telephone-outline"></i>-->
+            <!--{{rep['@attributes'].phone}}-->
             <i class="ion-ios-email-outline"></i>
-            OTHER
+            <!--OTHER-->
           </div>
-        
-          <!-- <p>bioguide_id:<span class="rep-attribute">{{rep['@attributes'].bioguide_id}}</span></p> -->
-          <!-- <p>birthdate:<span class="rep-attribute">{{rep['@attributes'].birthdate}}</span></p> -->
-          <!-- <p>cid:<span class="rep-attribute">{{rep['@attributes'].cid}}</span></p> -->
-          <!-- <p ng-if="rep['@attributes'].comments != 0">comments:<span class="rep-attribute">{{rep['@attributes'].comments}}</span></p> -->
-          <!-- <p>congress_office:<span class="rep-attribute">{{rep['@attributes'].congress_office}}</span></p> -->
-          <!-- <p>exit_code:<span class="rep-attribute">{{rep['@attributes'].exit_code}}</span></p> -->
-<!-- TODO: ADD FACEBOOK MESSAGING FUNCTIONALITY -->
-          <!-- <p>facebook_id:<span class="rep-attribute">{{rep['@attributes'].facebook_id}}</span></p> -->
-<!-- TODO: ADD EFAX FUNCTIONALITY? -->
-          <!-- <p>fax:<span class="rep-attribute">{{rep['@attributes'].fax}}</span></p> -->
-<!-- TODO: ADD CAMPAIGN FINANCE FUNCTIONALITY & DATA -->
-          <!-- <p>feccandid:<span class="rep-attribute">{{rep['@attributes'].feccandid}}</span></p> -->
-          <!-- <p>gender:<span class="rep-attribute">{{rep['@attributes'].gender}}</span></p> -->
-          <!-- <p>lastname:<span class="rep-attribute">{{rep['@attributes'].lastname}}</span></p> -->
-          <!-- <p>office:<span class="rep-attribute">{{rep['@attributes'].office}}</span></p> -->
-<!-- TODO: ADD DIALING -->
-          <!-- <p>phone:<span class="rep-attribute">{{rep['@attributes'].phone}}</span></p> -->
-<!-- TODO: ADD TWEET@REP FUNCTIONALITY -->
-          <!-- <p>twitter_id:<span class="rep-attribute">{{rep['@attributes'].twitter_id}}</span></p> -->
-<!-- TODO: ADD SEE-REP-VOTES FUNCTIONALITY -->
-          <!-- <p>votesmart_id:<span class="rep-attribute">{{rep['@attributes'].votesmart_id}}</span></p> -->
-          <!-- <p ng-if="rep['@attributes'].webform != 0">webform:<span class="rep-attribute">{{rep['@attributes'].webform}}</span></p> -->
-          <!-- <p>website:<span class="rep-attribute">{{rep['@attributes'].website}}</span></p> -->
-        <!-- </div> -->
+          <!--<div ng-click="scrollHelper($index)">NEXT</div>-->
        </div>
-
       </div>
     </ion-list>
+    </ion-scroll>
   </ion-content>
 </ion-view>

@@ -15,12 +15,22 @@
     text-transform: uppercase;
     font-size: 8.75px;
     letter-spacing: 3px;
+    transition: 3s;
+    animation-duration: 3s;
 }
 
 .title-left {
     left: 0px !important;
     right: 0px !important;
     text-align: center !important;
+}
+
+.rep-card a {
+    margin-left: 21px;
+}
+
+.rep-card a:hover {
+    cursor: pointer;
 }
 
 .rep-header {
@@ -35,7 +45,18 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     text-align: center;
     position: relative;
-    /*height: 40px;*/
+    padding: 11px 9px 9px 9px;
+}
+
+.rep-social {
+    display: flex;
+    justify-content: space-around;
+    font-size: 30px;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
     padding: 11px 9px 9px 9px;
 }
 
@@ -160,8 +181,9 @@
 }
 
 .card {
-    margin: 119px 10px 10px 10px;
-    height: calc(100vh - 129px)
+    margin: 105px 10px 10px 10px;
+    height: calc(100vh - 110px);
+    overflow: visible;
 }
 
 .card .row {
@@ -204,7 +226,8 @@ ion-header-bar {
 }
 
 .rep-wall {
-    background: url('../img/capitol.jpg') no-repeat center center;
+    background: url('../img/capitol4.jpg') no-repeat center center;
+    /*opacity: 0.6;*/
 }
 
 .pie-legend li,
@@ -260,10 +283,11 @@ ion-header-bar {
 }
 
 .howllogo {
-    background: url('../img/howllogo.png') no-repeat center center;
-    height: 50px;
+    background: url('../img/howllogo2.png') no-repeat center center;
     background-size: contain;
     transition: 0.5s;
+    height: 40px;
+    width: 40px;
 }
 
 view-title {
@@ -278,9 +302,12 @@ view-title {
 }
 
 .script-text {
-    background-color: yellow;
-    font-size: 18px;
-    line-height: 28px;
+    background-color: #FFF200;
+    font-family: 'Roboto';
+    letter-spacing: -1px;
+    font-size: 28px;
+    line-height: 34px;
+    font-style: italic;
 }
 
 .menu-open .menu-content {
@@ -289,6 +316,8 @@ view-title {
 
 .item-text-wrap {
     padding-top: 8px;
-    position: absolute;
+    /*position: absolute;*/
     left: 0;
+    animation-duration: .5s;
+    transition: .5s;
 }
