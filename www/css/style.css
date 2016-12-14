@@ -41,8 +41,9 @@
 }
 
 .rep-header {
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-bottom: 9px !important;
     border: none !important;
 }
 
@@ -332,7 +333,7 @@ view-title {
 }
 
 .script-block {
-    padding-bottom: 8px;
+    padding-bottom: 0px;
     font-family: 'Oswald';
     text-align: center;
     font-weight: 300;
@@ -385,5 +386,5 @@ view-title {
 }
 
 .social-row {
-    padding-top: 10px !important;
+    padding-top: 7px !important;
 }
