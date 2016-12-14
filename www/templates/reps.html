@@ -31,13 +31,6 @@
               </div>
             </div>
           </div>
-          <!--<div class="row">
-            <div class="col-25 namespace"></div>
-            <div class="col-50 firstlast">
-              Send Via...
-            </div>
-            <div class="col-25 namespace"></div>
-          </div>-->
           <div class="script-block">
             <span class="script-text">"I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?"</span>
           </div>
@@ -51,9 +44,8 @@
               <div class="social-poly">
                 <i class="ion-social-twitter" ng-click="sendTweet(rep['@attributes'].twitter_id)"></i>
               </div>
-                <!--@{{rep['@attributes'].twitter_id}}-->
               <div class="social-poly">
-                <i class="ion-social-facebook"></i>
+                <i class="ion-social-facebook" ng-click="sendFb(rep['@attributes'].facebook_id)"></i>
               </div>
                 <!--{{rep['@attributes'].firstlast}}-->
                 <!--<i class="ion-ios-telephone-outline"></i>-->

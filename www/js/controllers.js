@@ -83,9 +83,16 @@ angular.module('starter.controllers', [])
   }
 
   $scope.sendTweet = function(rep) {
-    var url = 'https://twitter.com/intent/tweet/?text=%40' + rep + '%20I%E2%80%99d%20like%20to%20talk%20to%20you%20about%20restoring%20Free%20and%20Fair%20Elections%20in%20America.%20Is%20this%20an%20issue%20you%20care%20about%3F%20%40cenkuygur%20%40wolfpachq'
+    var url = 'https://twitter.com/intent/tweet/?text=%40' + rep + '%20I%E2%80%99d%20like%20to%20talk%20to%20you%20about%20restoring%20Free%20%26%20Fair%20Elections.%20Is%20this%20an%20issue%20you%20care%20about%3F%20%40wolfpachq%20%40cenkuygur'
     console.log('coming through tweet link?', rep)
     // window.open(url, '_blank', 'location=no')
+    window.open(url, '_blank')
+}
+
+  $scope.sendFb = function(fb) {
+    // var url = 'https://www.facebook.com/sharer/sharer.php?u=' + fb
+    var url = 'https://www.facebook.com/' + fb
+    console.log('coming through facebook link?', fb.substr(9))
     window.open(url, '_blank')
 }
 

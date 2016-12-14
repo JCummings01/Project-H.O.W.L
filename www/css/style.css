@@ -5,9 +5,17 @@
     text-align: center;
     letter-spacing: 2px;
     line-height: 9.75px;
-    color: #97c5ed;
-    background-color: #0066ba;
-    border-color: #97c5ed;
+    /*color: #97c5ed;*/
+    color: white;
+    /*background-color: #0066ba;*/
+    background-color: #85bb65;
+    /*border-color: #97c5ed;*/
+    border-color: white;
+}
+
+.won {
+    background-color: white !important;
+    color: #97c5ed !important;
 }
 
 .ion-navicon {
@@ -45,6 +53,7 @@
     padding-left: 0 !important;
     padding-bottom: 9px !important;
     border: none !important;
+    background-color: transparent;
 }
 
 .rep-name {
@@ -72,14 +81,14 @@
     /*border-top: 1px solid #ccc;*/
 }
 
-.ion-social-twitter-outline {
-    color: steelblue;
+.ion-social-twitter {
+    color: #00aced;
 }
-.ion-social-facebook-outline {
-    color: blue;
+.ion-social-facebook {
+    color: #3b5998;
 }
-.ion-ios-email-outline {
-    color: #ccc;
+.ion-ios-email {
+    color: white;
 }
 
 .rep-attribute {
@@ -227,7 +236,7 @@
 }
 
 .item {
-    background-color: transparent;
+    /*background-color: transparent;*/
 }
 
 .item-avatar {
@@ -365,6 +374,7 @@ view-title {
     transition: .5s;
     height: 100%;
     border-bottom: 5px dashed #444;
+    background-color: transparent;
 }
 
 .social-poly {
