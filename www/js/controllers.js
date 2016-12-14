@@ -117,16 +117,16 @@ angular.module('starter.controllers', [])
     // }, 2000)
   }
 
-  $scope.scrollHelper = function(element) {
-    var duration = 2000; //milliseconds
-    var nextElement = parseInt(element + 1)
-    console.log('element index sent via click', nextElement)
-    // var offset = 120;
-    // var something = .position(angular.element(document.getElementById(nextElement)))
-    var repPosition = $ionicPosition.offset(angular.element(document.getElementById(nextElement)));
-    console.log('repPosition data', repPosition)
-    $ionicScrollDelegate.$getByHandle('rep-list').scrollTo(repPosition.left, repPosition.top, true);
-  }
+  // $scope.scrollHelper = function(element) {
+  //   var duration = 2000; //milliseconds
+  //   var nextElement = parseInt(element + 1)
+  //   console.log('element index sent via click', nextElement)
+  //   // var offset = 120;
+  //   // var something = .position(angular.element(document.getElementById(nextElement)))
+  //   var repPosition = $ionicPosition.offset(angular.element(document.getElementById(nextElement)));
+  //   console.log('repPosition data', repPosition)
+  //   $ionicScrollDelegate.$getByHandle('rep-list').scrollTo(repPosition.left, repPosition.top, true);
+  // }
 
   $scope.stateSelector = function (state) {
     var myEl = angular.element( document.querySelector( '.title' ) );
@@ -149,10 +149,12 @@ angular.module('starter.controllers', [])
         // console.log('then function after get reps...this work?', result.data.response.legislator)
         // for (var i = 0; i < result.data.response.legislator.length; i++) {
         //   var candidateId = result.data.response.legislator[i]['@attributes'].cid
-        api.getIndustries(result)
+        // api.getIndustries(result)
+        api.getCandData(result)
           .then(function(result) {
-            console.log('results in Controller from Industry factory call', result)
-            $scope.repSectors = result
+            console.log('controller.js - this should be candJSON', result)
+            // console.log('results in Controller from Industry factory call', result)
+            // $scope.repSectors = result
             })
       });
       $scope.hide($ionicLoading);

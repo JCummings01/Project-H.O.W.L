@@ -10,13 +10,16 @@
     border-color: #97c5ed;
 }
 
+.ion-navicon {
+    color: #ccc !important;
+}
+
 .title {
     font-family: 'Source Sans Pro', sans-serif;
     text-transform: uppercase;
     font-size: 8.75px;
     letter-spacing: 3px;
-    transition: 3s;
-    animation-duration: 3s;
+    color: #ccc !important;
 }
 
 .title-left {
@@ -46,22 +49,26 @@
 .rep-name {
     /*border-right: 1px solid rgba(255, 255, 255, 0.85);*/
     /*border-left: 1px solid rgba(255, 255, 255, 0.85);*/
-    /*border-bottom: 1px solid rgba(255, 255, 255, 0.85);*/
+    border-bottom: 1px solid #aaa;
     text-align: center;
     position: relative;
-    padding: 11px 9px 9px 9px;
+    padding-top: 11px;
+    padding-bottom: 9px;
 }
 
 .rep-social {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     font-size: 30px;
-    /*border-right: 1px solid rgba(255, 255, 255, 0.85);*/
-    /*border-left: 1px solid rgba(255, 255, 255, 0.85);*/
-    border-bottom: 1px solid rgba(255, 255, 255, 0.85);
     text-align: center;
     position: relative;
-    padding: 11px 9px 9px 9px;
+    padding-bottom: 9px;
+    /*padding-top: 16px;*/
+    width: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    /*border-top: 1px solid #ccc;*/
 }
 
 .ion-social-twitter-outline {
@@ -81,6 +88,7 @@
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 2px;
+    color: #aaa !important;
 }
 
 .rep-attribute .rep-time {
@@ -129,6 +137,7 @@
 .camp-fin {
     align-items: center;
     font-size: 11px;
+    color: #aaa;
 }
 
 .camp-fin-row {
@@ -137,7 +146,7 @@
 
 .spacer {
     height: 1px;
-    background-color: #ccc;
+    background-color: #aaa;
 }
 
 /*.rep-D {
@@ -154,11 +163,11 @@
     font-size: 20px;
     line-height: 1px;
     text-align: center;
-    color: #ccc;
+    color: #aaa;
 }
 
 .namespace {
-    border-bottom: 1px solid rgba(255,255,255,0.85);
+    border-bottom: 1px solid #aaa;
 }
 
 .pac-links {
@@ -198,7 +207,7 @@
 .card {
     /*margin: 105px 0px 0px 0px;*/
     margin: 0;
-    padding-top: 105px;
+    padding-top: 45px;
     /*height: calc(100vh - 105px);*/
     height: calc(100vh);
     overflow: visible;
@@ -211,8 +220,9 @@
 }
 
 .rep-card {
-    background-color: rgba(0,0,0,0.85);
-    /*border: 1px solid #ccc;*/
+    /*background-color: rgba(0,0,0,0.85);*/
+    background: url('../img/patern-adh.png');
+    border-bottom: 2px dashed #444;
 }
 
 .item {
@@ -220,7 +230,13 @@
 }
 
 .item-avatar {
-    min-height: 59px;
+    height: 100px;
+    width: 100px;
+    margin-right: auto;
+    margin-left: auto;
+	background: #1e90ff;
+	-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
 .item-avatar img {
@@ -249,7 +265,7 @@ ion-header-bar {
 }
 
 .rep-wall {
-    background: url('../img/capitol3.jpg') no-repeat center center;
+    background: url('../img/capitolbw.jpg') no-repeat center center;
 }
 
 .pie-legend li,
@@ -305,35 +321,35 @@ ion-header-bar {
 }
 
 .howllogo {
-    /*background: url('../img/howllogo2.png') no-repeat center center;*/
-    /*background-size: contain;*/
     transition: 0.5s;
     height: 40px;
     width: 40px;
+    margin-top: 3px;
 }
-
-/*.howllogo path {
-    fill: red;
-}*/
 
 view-title {
     transition: 0.5s;
 }
 
 .script-block {
-    padding-bottom: 20px;
+    padding-bottom: 8px;
     font-family: 'Oswald';
     text-align: center;
     font-weight: 300;
 }
 
 .script-text {
-    background-color: #FFF200;
-    font-family: 'Roboto';
+    /*background-color: #FFF200;*/
+    background-color: rgba(255,242,0,0.9);
+    /*font-family: 'Roboto';
     letter-spacing: -1px;
     font-size: 28px;
     line-height: 34px;
-    font-style: italic;
+    font-style: italic;*/
+    font-family: 'Anton';
+    font-size: 22.75px;
+    line-height: 40px;
+    letter-spacing: -1px;
 }
 
 .menu-open .menu-content {
@@ -342,10 +358,32 @@ view-title {
 
 .item-text-wrap {
     padding-top: 0;
-    padding-right: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-    /*left: 0;*/
-    animation-duration: .5s;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 9px;
     transition: .5s;
+    height: 100%;
+    border-bottom: 5px dashed #444;
+}
+
+.social-poly {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    background-color: #ccc;
+    align-items: center;
+    justify-content: center;
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.send-via {
+    font-family: 'Open Sans';
+    font-size: 11.75px;
+    text-align: center;
+    color: #ccc;
+}
+
+.social-row {
+    padding-top: 10px !important;
 }

@@ -4,8 +4,8 @@
     <ion-list>
       <div ng-repeat="rep in reps track by $index" ng-class="'rep-' + rep['@attributes'].party" class="card rep-card animated slideInUp" >
         <div id="{{$index}}" class="item item-text-wrap">
-          <div class="item-avatar">
-            <img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">
+          <div class="item-avatar" style="background: url('https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg') no-repeat center;">
+            <!--<img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">-->
           </div>
           <div class="item rep-header">
             <div class="row">
@@ -31,25 +31,38 @@
               </div>
             </div>
           </div>
+          <!--<div class="row">
+            <div class="col-25 namespace"></div>
+            <div class="col-50 firstlast">
+              Send Via...
+            </div>
+            <div class="col-25 namespace"></div>
+          </div>-->
           <div class="script-block">
-              <span class="script-text">I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?"</span>
-          </div>
-          <div class="row">
-            <div class="col-25 namespace"></div>
-            <div class="col-50 firstlast">Send Via...</div>
-            <div class="col-25 namespace"></div>
+            <span class="script-text">"I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?"</span>
           </div>
           <div class="rep-social">
-            <i class="ion-social-twitter-outline" ng-click="sendTweet(rep['@attributes'].twitter_id)"></i>
-            <!--@{{rep['@attributes'].twitter_id}}-->
-            <i class="ion-social-facebook-outline"></i>
-            <!--{{rep['@attributes'].firstlast}}-->
-            <!--<i class="ion-ios-telephone-outline"></i>-->
-            <!--{{rep['@attributes'].phone}}-->
-            <i class="ion-ios-email-outline"></i>
-            <!--OTHER-->
+            <div class="row camp-fin-row">
+              <div class="col-25 spacer"></div>
+              <div class="col-50 send-via">Send Via...</div>
+              <div class="col-25 spacer"></div>
+            </div>
+            <div class="row social-row">
+              <div class="social-poly">
+                <i class="ion-social-twitter" ng-click="sendTweet(rep['@attributes'].twitter_id)"></i>
+              </div>
+                <!--@{{rep['@attributes'].twitter_id}}-->
+              <div class="social-poly">
+                <i class="ion-social-facebook"></i>
+              </div>
+                <!--{{rep['@attributes'].firstlast}}-->
+                <!--<i class="ion-ios-telephone-outline"></i>-->
+                <!--{{rep['@attributes'].phone}}-->
+              <div class="social-poly">
+                <i class="ion-ios-email"></i>
+              </div>
+            </div>
           </div>
-          <!--<div ng-click="scrollHelper($index)">NEXT</div>-->
        </div>
       </div>
     </ion-list>
