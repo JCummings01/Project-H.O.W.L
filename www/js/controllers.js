@@ -96,6 +96,13 @@ angular.module('starter.controllers', [])
     window.open(url, '_blank')
 }
 
+  $scope.placeCall = function(num) {
+    console.log('Place Call to ' + num);
+    if (window.cordova) {
+        cordova.InAppBrowser.open('tel:' + num, '_system');
+    }
+  }
+
 // $rootScope.$on('$cordovaInAppBrowser:exit', function(e, event));
 
   // ACTION SHEET POPUP FOR SCRIPT
@@ -107,7 +114,7 @@ angular.module('starter.controllers', [])
       //  { text: 'Move' }
       // ],
       // destructiveText: 'Delete',
-      titleText: 'Hi Representative/Senator, Im a citizen of your state and Id like to talk to you about an important resolution that aims to fix the corruption happening in Washington, D.C. by restoring Free and Fair Elections in America. The purpose of this Resolution is to clean up our election system so that the voices of average Americans don’t continue to be drowned out by big money and special interests. Is this an issue you care about? Thank you. This Resolution calls for an amendment to our U.S. Constitution because we need to solve this problem for the long run. Since Congress is incapable of solving any problem, let alone this one, we are working to get this amendment through our state legislatures, which is why I’m talking to you! I trust you much more than Congress. The resolution calls for an amendment convention to propose an amendment that would deal with the influence of money in our political system. A national convention is the way for us to go around Congress and get an amendment ourselves without relying on them, nor waiting around for them. Do you think there is any part of our election system that could work better for the average American?',
+      titleText: '<b>Hi Representative/Senator,</b> Im a citizen of your state and Id like to talk to you about an important resolution that aims to fix the corruption happening in Washington, D.C. by restoring Free and Fair Elections in America. The purpose of this Resolution is to clean up our election system so that the voices of average Americans don’t continue to be drowned out by big money and special interests. Is this an issue you care about? Thank you. This Resolution calls for an amendment to our U.S. Constitution because we need to solve this problem for the long run. Since Congress is incapable of solving any problem, let alone this one, we are working to get this amendment through our state legislatures, which is why I’m talking to you! I trust you much more than Congress. The resolution calls for an amendment convention to propose an amendment that would deal with the influence of money in our political system. A national convention is the way for us to go around Congress and get an amendment ourselves without relying on them, nor waiting around for them. Do you think there is any part of our election system that could work better for the average American?',
       cancelText: 'Cancel',
       cancel: function () {
           // add cancel code..

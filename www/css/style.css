@@ -389,9 +389,10 @@ view-title {
 }
 
 .send-via {
-    font-family: 'Open Sans';
-    font-size: 11.75px;
+    font-family: 'Josefin Sans';
+    font-size: 13.75px;
     text-align: center;
+    /*font-style: italic;*/
     color: #ccc;
 }
 

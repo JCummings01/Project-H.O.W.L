@@ -1,9 +1,9 @@
 <ion-view cache-view="false" view-title="{{currentState}}">
   <ion-content class="rep-wall" delegate-handle="rep-list">
-    <ion-scroll>
+    <!--<ion-scroll>-->
     <ion-list>
-      <div ng-repeat="rep in reps track by $index" ng-class="'rep-' + rep['@attributes'].party" class="card rep-card animated slideInUp" >
-        <div id="{{$index}}" class="item item-text-wrap">
+      <div ng-repeat="rep in reps track by $index" ng-class="'rep-' + rep['@attributes'].party" class="card rep-card">
+        <div id="{{$index}}" class="item item-text-wrap animated slideInUp">
           <div class="item-avatar" style="background: url('https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg') no-repeat center;">
             <!--<img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">-->
           </div>
@@ -48,8 +48,10 @@
                 <i class="ion-social-facebook" ng-click="sendFb(rep['@attributes'].facebook_id)"></i>
               </div>
                 <!--{{rep['@attributes'].firstlast}}-->
-                <!--<i class="ion-ios-telephone-outline"></i>-->
+              <div class="social-poly">
+                <i class="ion-ios-telephone-outline" ng-click="placeCall(rep['@attributes'].phone)"></i>
                 <!--{{rep['@attributes'].phone}}-->
+              </div>
               <div class="social-poly">
                 <i class="ion-ios-email"></i>
               </div>
@@ -58,6 +60,6 @@
        </div>
       </div>
     </ion-list>
-    </ion-scroll>
+    <!--</ion-scroll>-->
   </ion-content>
 </ion-view>
