@@ -74,10 +74,11 @@
     text-align: center;
     position: relative;
     padding-bottom: 9px;
+    padding-top: 8px;
     /*padding-top: 16px;*/
-    width: 170px;
-    margin-left: auto;
-    margin-right: auto;
+    /*width: 170px;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
     /*border-top: 1px solid #ccc;*/
 }
 
@@ -152,6 +153,7 @@
 
 .camp-fin-row {
     align-items: center;
+    height: 11px;
 }
 
 .spacer {
@@ -397,5 +399,11 @@ view-title {
 }
 
 .social-row {
-    padding-top: 7px !important;
+    /*padding-top: 7px !important;*/
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    height: 60px;
+    justify-content: space-around !important;
+    align-items: center;
 }

@@ -41,20 +41,19 @@
               <div class="col-25 spacer"></div>
             </div>
             <div class="row social-row">
-              <div class="social-poly">
+              <!--<div class="social-poly">-->
                 <i class="ion-social-twitter" ng-click="sendTweet(rep['@attributes'].twitter_id)"></i>
-              </div>
-              <div class="social-poly">
+              <!--</div>-->
+              <!--<div class="social-poly">-->
                 <i class="ion-social-facebook" ng-click="sendFb(rep['@attributes'].facebook_id)"></i>
-              </div>
+              <!--</div>-->
                 <!--{{rep['@attributes'].firstlast}}-->
-              <div class="social-poly">
+              <!--<div class="social-poly">-->
                 <i class="ion-ios-telephone-outline" ng-click="placeCall(rep['@attributes'].phone)"></i>
-                <!--{{rep['@attributes'].phone}}-->
-              </div>
-              <div class="social-poly">
-                <i class="ion-ios-email"></i>
-              </div>
+              <!--</div>-->
+              <!--<div class="social-poly">-->
+                <i class="ion-ios-email" ng-click="sendEmail()"></i>
+              <!--</div>-->
             </div>
           </div>
        </div>

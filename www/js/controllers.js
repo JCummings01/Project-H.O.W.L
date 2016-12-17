@@ -97,11 +97,29 @@ angular.module('starter.controllers', [])
 }
 
   $scope.placeCall = function(num) {
-    console.log('Place Call to ' + num);
-    if (window.cordova) {
-        cordova.InAppBrowser.open('tel:' + num, '_system');
-    }
+    console.log('Place Call to ' + num)
+    window.open('tel:' + num, '_system')
+    // if (window.cordova) {
+    //     cordova.InAppBrowser.open('tel:' + num, '_system');
+    // }
   }
+
+  $scope.sendEmail = function(addr) {
+    console.log('Send Email to ' + addr)
+    if(window.plugins && window.plugins.emailComposer) {
+        window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
+            console.log("Response -> " + result);
+        }, 
+        "Free and Fair Elections", // Subject
+        "I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?",                      // Body
+        addr,    // To
+        null,                    // CC
+        null,                    // BCC
+        true,                   // isHTML
+        null,                    // Attachments
+        null);                   // Attachment Data
+    }
+}
 
 // $rootScope.$on('$cordovaInAppBrowser:exit', function(e, event));
 
