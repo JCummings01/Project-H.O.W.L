@@ -86,38 +86,53 @@ angular.module('starter.controllers', [])
     var url = 'https://twitter.com/intent/tweet/?text=%40' + rep + '%20I%E2%80%99d%20like%20to%20talk%20to%20you%20about%20restoring%20Free%20%26%20Fair%20Elections.%20Is%20this%20an%20issue%20you%20care%20about%3F%20%40wolfpachq%20%40cenkuygur'
     console.log('coming through tweet link?', rep)
     // window.open(url, '_blank', 'location=no')
-    window.open(url, '_blank')
+    // window.open(url, '_blank')
+    if (window.cordova) {
+      cordova.InAppBrowser.open(url, '_blank');
+    }
 }
 
   $scope.sendFb = function(fb) {
     // var url = 'https://www.facebook.com/sharer/sharer.php?u=' + fb
     var url = 'https://www.facebook.com/' + fb
     console.log('coming through facebook link?', fb.substr(9))
-    window.open(url, '_blank')
+    // window.open(url, '_blank')
+    if (window.cordova) {
+      cordova.InAppBrowser.open(url, '_blank');
+    }
 }
 
   $scope.placeCall = function(num) {
     console.log('Place Call to ' + num)
-    window.open('tel:' + num, '_system')
-    // if (window.cordova) {
-    //     cordova.InAppBrowser.open('tel:' + num, '_system');
-    // }
+    // window.open('tel:' + num, '_system')
+    if (window.cordova) {
+      cordova.InAppBrowser.open('tel:' + num, '_system');
+    }
+  }
+
+  $scope.openWindow = function(url) {
+    if (window.cordova) {
+      cordova.InAppBrowser.open(url, '_blank');
+    }
   }
 
   $scope.sendEmail = function(addr) {
     console.log('Send Email to ' + addr)
-    if(window.plugins && window.plugins.emailComposer) {
-        window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
-            console.log("Response -> " + result);
-        }, 
-        "Free and Fair Elections", // Subject
-        "I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?",                      // Body
-        addr,    // To
-        null,                    // CC
-        null,                    // BCC
-        true,                   // isHTML
-        null,                    // Attachments
-        null);                   // Attachment Data
+    // if(window.plugins && window.plugins.emailComposer) {
+    //     window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
+    //         console.log("Response -> " + result);
+    //     }, 
+    //     "Free and Fair Elections", // Subject
+    //     "I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?",                      // Body
+    //     addr,    // To
+    //     null,                    // CC
+    //     null,                    // BCC
+    //     true,                   // isHTML
+    //     null,                    // Attachments
+    //     null);                   // Attachment Data
+    // }
+    if (window.cordova) {
+      cordova.InAppBrowser.open(addr, 'blank');
     }
 }
 
@@ -161,6 +176,7 @@ angular.module('starter.controllers', [])
   // }
 
   $scope.stateSelector = function (state) {
+    angular.element(document.querySelector('.rep-wall')).css('background-size', '150%');
     var myEl = angular.element( document.querySelector( '.title' ) );
     myEl.addClass('animated');
     myEl.addClass('fadeIn');

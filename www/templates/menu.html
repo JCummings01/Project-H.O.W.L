@@ -25,11 +25,11 @@
     </ion-header-bar>
     <ion-content>
         <ion-list>
-          <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/the_plan’, ‘_system’)">The Plan</ion-item>
-          <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/revolution’, ‘_system’)">Membership</ion-item>
-          <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/donate’, ‘_system’)">Donate</ion-item>
-          <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/volunteer’, ‘_system’)">Volunteer</ion-item>
-          <ion-item class="pac-links" onclick="window.open(‘http://www.wolf-pac.com/petition’, ‘_system’)">Sign Petition</ion-item>
+          <ion-item class="pac-links" ng-click="openWindow('http://www.wolf-pac.com/the_plan')">The Plan</ion-item>
+          <ion-item class="pac-links" ng-click="openWindow('http://www.wolf-pac.com/revolution')">Membership</ion-item>
+          <ion-item class="pac-links" ng-click="openWindow('http://www.wolf-pac.com/donate')">Donate</ion-item>
+          <ion-item class="pac-links" ng-click="openWindow('http://www.wolf-pac.com/volunteer')">Volunteer</ion-item>
+          <ion-item class="pac-links" ng-click="openWindow('http://www.wolf-pac.com/petition')">Sign Petition</ion-item>
           <ion-item menu-close ng-class="{won: state.state === 'California' || state.state == 'Illinois' || state.state == 'New Jersey' || state.state == 'Rhode Island' || state.state == 'Vermont'}" class="state-list-item" ng-repeat="state in states" ng-click="stateSelector(state)">
             {{state.state}}
           </ion-item>

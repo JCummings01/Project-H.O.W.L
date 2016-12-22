@@ -1,5 +1,5 @@
 <ion-view cache-view="false" view-title="{{currentState}}">
-  <ion-content class="rep-wall" delegate-handle="rep-list">
+  <ion-content ng-style="logoGrow" class="rep-wall" delegate-handle="rep-list">
     <!--<ion-scroll>-->
     <ion-list>
       <div ng-repeat="rep in reps track by $index" ng-class="'rep-' + rep['@attributes'].party" class="card rep-card">
@@ -36,9 +36,9 @@
           </div>
           <div class="rep-social">
             <div class="row camp-fin-row">
-              <div class="col-25 spacer"></div>
-              <div class="col-50 send-via">Send Via...</div>
-              <div class="col-25 spacer"></div>
+              <div class="col-40 spacer"></div>
+              <div class="col-20 send-via">Send Via...</div>
+              <div class="col-40 spacer"></div>
             </div>
             <div class="row social-row">
               <!--<div class="social-poly">-->
@@ -52,7 +52,7 @@
                 <i class="ion-ios-telephone-outline" ng-click="placeCall(rep['@attributes'].phone)"></i>
               <!--</div>-->
               <!--<div class="social-poly">-->
-                <i class="ion-ios-email" ng-click="sendEmail()"></i>
+                <i class="ion-ios-email" ng-click="sendEmail(rep['@attributes'].webform)"></i>
               <!--</div>-->
             </div>
           </div>

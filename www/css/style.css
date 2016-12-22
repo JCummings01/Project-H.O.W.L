@@ -1,3 +1,16 @@
+body {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+}
+.item-text-wrap {
+    -webkit-user-select: inherit;
+    -moz-user-select: inherit;
+    -ms-user-select: inherit;
+    user-select: inherit;
+}
+
 .state-list-item {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 9.75px;
@@ -277,7 +290,10 @@ ion-header-bar {
 }
 
 .rep-wall {
-    background: url('../img/capitolbw.jpg') no-repeat center center;
+    background: url('../img/icon.png') no-repeat center center;
+    background-size: 100%;
+    background-color: #bcbebd;
+    transition: 2s;
 }
 
 .pie-legend li,
@@ -353,6 +369,7 @@ view-title {
 .script-text {
     /*background-color: #FFF200;*/
     background-color: rgba(255,242,0,0.9);
+    box-shadow: 5px 0 0 rgba(255,242,0,0.9),-5px 0 0 rgba(255,242,0,0.9);
     /*font-family: 'Roboto';
     letter-spacing: -1px;
     font-size: 28px;
