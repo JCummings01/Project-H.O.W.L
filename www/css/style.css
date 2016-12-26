@@ -64,7 +64,7 @@ body {
 .rep-header {
     padding-right: 0 !important;
     padding-left: 0 !important;
-    padding-bottom: 9px !important;
+    padding-bottom: 0 !important;
     border: none !important;
     background-color: transparent;
 }
@@ -87,7 +87,7 @@ body {
     text-align: center;
     position: relative;
     padding-bottom: 9px;
-    padding-top: 8px;
+    padding-top: 15px;
     /*padding-top: 16px;*/
     /*width: 170px;*/
     /*margin-left: auto;*/
@@ -294,7 +294,7 @@ ion-header-bar {
     background-size: 100%;
     background-color: #bcbebd;
     transition: 2s;
-    padding-top: 0px;
+    padding-top: 0px !important;
 }
 
 .pie-legend li,
@@ -387,7 +387,7 @@ view-title {
 }
 
 .item-text-wrap {
-    padding-top: 0;
+    padding-top: 0 !important;
     /*padding-right: 10px;*/
     /*padding-left: 10px;*/
     /*padding-bottom: 9px;*/
