@@ -244,10 +244,16 @@ body {
 }
 
 .rep-card {
-    /*background-color: rgba(0,0,0,0.85);*/
-    background: url('../img/patern-adh.png');
+    background-color: transparent;
+    box-shadow: none;
+    /*background: url('../img/patern-adh.png');*/
     /*background: url('../img/grid-pattern.png');*/
     /*border-bottom: 2px dashed #444;*/
+}
+
+.list {
+    background: url('../img/patern-adh.png');
+    padding: 0;
 }
 
 .item {
