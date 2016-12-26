@@ -62,9 +62,7 @@ body {
 }
 
 .rep-header {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-    padding-bottom: 0 !important;
+    padding: 0 !important;
     border: none !important;
     background-color: transparent;
 }
@@ -99,7 +97,7 @@ body {
     text-align: left;
     font-family: 'Source Sans Pro';
     font-size: 11px !important;
-    font-weight: 300;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #aaa !important;
@@ -178,7 +176,8 @@ body {
 .firstlast {
     font-family: 'Josefin Sans';
     font-size: 2em;
-    /*line-height: 100px;*/
+    font-weight: 600;
+    line-height: 1em;
     text-align: left;
     color: #aaa;
     display: flex;
@@ -253,11 +252,13 @@ body {
 
 .list {
     background: url('../img/patern-adh.png');
+    /*background: url('../img/grid-pattern.png');*/
     padding: 0;
 }
 
 .item {
     color: #111;
+    /*padding: 0;*/
 }
 
 .item-avatar {
@@ -394,8 +395,8 @@ view-title {
 
 .item-text-wrap {
     padding-top: 0 !important;
-    /*padding-right: 10px;*/
-    /*padding-left: 10px;*/
+    padding-right: 30px;
+    padding-left: 30px;
     /*padding-bottom: 9px;*/
     transition: .5s;
     height: 100%;
@@ -507,6 +508,8 @@ view-title {
 .nv-legend-text {
     fill: #ccc;
     font-size: 11px;
+    font-family: 'Source Sans Pro';
+    font-weight: 600;
 }
 .nv-pie-title {
     fill: #ccc;
@@ -516,6 +519,46 @@ view-title {
 }
 .nvd3-svg {
     /*margin-top: -25px;*/
+}
+.nv-legend-symbol {
+  position: relative;
+  text-align: center;
+  padding: 12px;
+  margin-bottom: 6px;
+  height: 60px;
+  width: 200px;
+}
+
+.nv-legend-symbol:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 51%;
+  background: red;
+  -webkit-transform: skew(0deg, 6deg);
+  -moz-transform: skew(0deg, 6deg);
+  -ms-transform: skew(0deg, 6deg);
+  -o-transform: skew(0deg, 6deg);
+  transform: skew(0deg, 6deg);
+}
+.nv-legend-symbol:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  background: red;
+  -webkit-transform: skew(0deg, -6deg);
+  -moz-transform: skew(0deg, -6deg);
+  -ms-transform: skew(0deg, -6deg);
+  -o-transform: skew(0deg, -6deg);
+  transform: skew(0deg, -6deg);
+}
+.nv-legendWrap {
+    /*margin-left: -15px;*/
 }
 
 .send-via {
