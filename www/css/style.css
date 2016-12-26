@@ -72,11 +72,11 @@ body {
 .rep-name {
     /*border-right: 1px solid rgba(255, 255, 255, 0.85);*/
     /*border-left: 1px solid rgba(255, 255, 255, 0.85);*/
-    border-bottom: 1px solid #aaa;
+    /*border-bottom: 1px solid #aaa;*/
     text-align: center;
     position: relative;
-    padding-top: 11px;
-    padding-bottom: 9px;
+    /*padding-top: 11px;*/
+    /*padding-bottom: 9px;*/
 }
 
 .rep-social {
@@ -95,24 +95,15 @@ body {
     /*border-top: 1px solid #ccc;*/
 }
 
-.ion-social-twitter {
-    color: #00aced;
-}
-.ion-social-facebook {
-    color: #3b5998;
-}
-.ion-ios-email {
-    color: white;
-}
-
 .rep-attribute {
     text-align: left;
     font-family: 'Source Sans Pro';
-    font-size: 11px;
+    font-size: 11px !important;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #aaa !important;
+    padding-left: 3px;
 }
 
 .rep-attribute .rep-time {
@@ -162,6 +153,7 @@ body {
     align-items: center;
     font-size: 11px;
     color: #aaa;
+
 }
 
 .camp-fin-row {
@@ -185,10 +177,13 @@ body {
 
 .firstlast {
     font-family: 'Josefin Sans';
-    font-size: 20px;
-    line-height: 1px;
-    text-align: center;
+    font-size: 2em;
+    /*line-height: 100px;*/
+    text-align: left;
     color: #aaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .namespace {
@@ -232,26 +227,31 @@ body {
 .card {
     /*margin: 105px 0px 0px 0px;*/
     margin: 0;
-    padding-top: 45px;
+    /*padding-top: 45px;*/
     /*height: calc(100vh - 105px);*/
-    height: calc(100vh);
+    height: 100vh;
     overflow: visible;
 }
 
 .card .row {
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.chart-container {
+    /*background: url('../img/grid-pattern.png');*/
 }
 
 .rep-card {
     /*background-color: rgba(0,0,0,0.85);*/
     background: url('../img/patern-adh.png');
-    border-bottom: 2px dashed #444;
+    /*background: url('../img/grid-pattern.png');*/
+    /*border-bottom: 2px dashed #444;*/
 }
 
 .item {
-    /*background-color: transparent;*/
+    color: #111;
 }
 
 .item-avatar {
@@ -294,6 +294,7 @@ ion-header-bar {
     background-size: 100%;
     background-color: #bcbebd;
     transition: 2s;
+    padding-top: 0px;
 }
 
 .pie-legend li,
@@ -387,24 +388,128 @@ view-title {
 
 .item-text-wrap {
     padding-top: 0;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 9px;
+    /*padding-right: 10px;*/
+    /*padding-left: 10px;*/
+    /*padding-bottom: 9px;*/
     transition: .5s;
     height: 100%;
     border-bottom: 5px dashed #444;
     background-color: transparent;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.social-poly {
-    width: 50px;
-    height: 50px;
+.ion-social-twitter {
+    color: white;
+}
+.ion-social-facebook {
+    color: white;
+}
+.ion-ios-email {
+    color: white;
+}
+.ion-ios-telephone-outline {
+    color: white;
+}
+.twitter, .phone, .facebook, .email {
+    width: 40px;
+    height: 40px;
     display: flex;
-    background-color: #ccc;
     align-items: center;
     justify-content: center;
-    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    -moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+    /*-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);*/
+}
+.twitter {
+    background-color: #00aced;
+}
+.phone {
+    background-color: #25D366;
+}
+.facebook {
+    background-color: #3b5998;
+}
+.email {
+    background-color: #dd4b39;
+}
+.twitter-2, .phone-2, .facebook-2, .email-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    -moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+}
+.twitter-2 {
+    background-color: #111;
+
+}
+.facebook-2 {
+    background-color: #111;
+
+}
+.email-2 {
+    background-color: #111;
+
+}
+.phone-2 {
+    background-color: #111;
+
+}
+.twitter-3, .phone-3, .facebook-3, .email-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    -moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+}
+.twitter-3 {
+    background-color: #fff200;
+}
+.facebook-3 {
+    background-color: #fff200;
+}
+.phone-3 {
+    background-color: #fff200;
+}
+.email-3 {
+    background-color: #fff200;
+}
+.social-row {
+    padding-top: 25px !important;
+    /*border-left: 1px solid #ccc;*/
+    /*border-right: 1px solid #ccc;*/
+    /*border-bottom: 1px solid #ccc;*/
+    height: 60px;
+    justify-content: space-around !important;
+    align-items: center;
+}
+
+.nv-label text {
+    fill: #ccc !important;
+}
+.nv-legend-text {
+    fill: #ccc;
+    font-size: 11px;
+}
+.nv-pie-title {
+    fill: #ccc;
+}
+.nv-series {
+    /*display: none;*/
+}
+.nvd3-svg {
+    /*margin-top: -25px;*/
 }
 
 .send-via {
@@ -413,14 +518,4 @@ view-title {
     text-align: center;
     /*font-style: italic;*/
     color: #ccc;
-}
-
-.social-row {
-    /*padding-top: 7px !important;*/
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    height: 60px;
-    justify-content: space-around !important;
-    align-items: center;
 }

@@ -4,56 +4,74 @@
     <ion-list>
       <div ng-repeat="rep in reps track by $index" ng-class="'rep-' + rep['@attributes'].party" class="card rep-card">
         <div id="{{$index}}" class="item item-text-wrap animated slideInUp">
-          <div class="item-avatar" style="background: url('https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg') no-repeat center;">
-            <!--<img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">-->
-          </div>
           <div class="item rep-header">
             <div class="row">
-              <div class="col-25"></div>
-              <div class="col-50 firstlast">{{rep['@attributes'].firstlast}}</div>
-              <div class="col-25"></div>
+              <div class="col-40">
+                <div class="item-avatar" style="background: url('https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg') no-repeat center;">
+                <!--<img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">-->
+                </div>
+              </div>
+              <div class="col-60 firstlast">
+                {{rep['@attributes'].firstlast}}
+                <p class="rep-attribute">In office: <span class="rep-time">{{2016 - rep['@attributes'].first_elected}} years ({{rep['@attributes'].first_elected}})</span></p> 
+              </div>
             </div>
             <div class="rep-name">
-              <p class="rep-attribute">Time in office: <span class="rep-time">{{2016 - rep['@attributes'].first_elected}} years ({{rep['@attributes'].first_elected}})</span></p> 
-              <div class="row camp-fin-row">
-                <div class="col-25 spacer"></div>
+              <!--<div class="row camp-fin-row">
+                <div class="col-25"></div>
                 <div class="col-50 camp-fin">CAMPAIGN CONTRIBUTIONS</div>
-                <div class="col-25 spacer"></div>
-              </div>
-              <canvas id="bar" class="chart chart-bar" data="data" series="series" options="options" labels="labels" legend="false" colours="colours"></canvas>
-              <div class="sector-names">
+                <div class="col-25"></div>
+              </div>-->
+              <!--<canvas id="bar" class="chart chart-bar" data="data" series="series" options="options" labels="labels" legend="false" colours="colours"></canvas>-->
+              <nvd3 options="options" data="data"></nvd3>
+              <!--<div class="sector-names">
                 <div class="sector-1">Agriculture</div>
                 <div class="sector-2">Comm</div>
                 <div class="sector-3">Lobbyists</div>
                 <div class="sector-4">Financial</div>
                 <div class="sector-5">Medical</div>
                 <div class="sector-6">Environmental</div>
-              </div>
+              </div>-->
             </div>
           </div>
           <div class="script-block">
             <span class="script-text">"I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?"</span>
           </div>
           <div class="rep-social">
-            <div class="row camp-fin-row">
-              <div class="col-40 spacer"></div>
+            <!--<div class="row camp-fin-row">
+              <div class="col-20 spacer"></div>
               <div class="col-20 send-via">Send Via...</div>
-              <div class="col-40 spacer"></div>
-            </div>
+              <div class="col-20 spacer"></div>
+            </div>-->
             <div class="row social-row">
-              <!--<div class="social-poly">-->
-                <i class="ion-social-twitter" ng-click="sendTweet(rep['@attributes'].twitter_id)"></i>
-              <!--</div>-->
-              <!--<div class="social-poly">-->
-                <i class="ion-social-facebook" ng-click="sendFb(rep['@attributes'].facebook_id)"></i>
-              <!--</div>-->
-                <!--{{rep['@attributes'].firstlast}}-->
-              <!--<div class="social-poly">-->
-                <i class="ion-ios-telephone-outline" ng-click="placeCall(rep['@attributes'].phone)"></i>
-              <!--</div>-->
-              <!--<div class="social-poly">-->
-                <i class="ion-ios-email" ng-click="sendEmail(rep['@attributes'].webform)"></i>
-              <!--</div>-->
+              <div class="twitter-3">
+                <div class="twitter-2">
+                  <div class="twitter">
+                    <i class="ion-social-twitter" ng-click="sendTweet(rep['@attributes'].twitter_id)"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="facebook-3">
+                <div class="facebook-2">
+                  <div class="facebook">
+                    <i class="ion-social-facebook" ng-click="sendFb(rep['@attributes'].facebook_id)"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="phone-3">
+                <div class="phone-2">
+                  <div class="phone">
+                    <i class="ion-ios-telephone-outline" ng-click="placeCall(rep['@attributes'].phone)"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="email-3">
+                <div class="email-2">
+                  <div class="email">
+                    <i class="ion-ios-email" ng-click="sendEmail(rep['@attributes'].webform)"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
        </div>

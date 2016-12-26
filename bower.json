@@ -7,7 +7,8 @@
   "dependencies": {
     "ng-twitter-api": "~0.1.5",
     "angular-resource": "~1.5.9",
-    "ng-cordova-oauth": "~0.3.0"
+    "ng-cordova-oauth": "~0.3.0",
+    "angular-nvd3": "~1.0.9"
   },
   "resolutions": {
     "angular": "1.5.3"

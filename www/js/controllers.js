@@ -208,19 +208,55 @@ angular.module('starter.controllers', [])
       $scope.hide($ionicLoading);
   }
 
+  $scope.options = {  
+    chart: {
+      type: 'pieChart',
+      donut: false,
+      height: 200,
+      x: function(d){return d.key;},
+      y: function(d){return d.y;},
+      showLabels: false,
+      duration: 500,
+      labelThreshold: 0.1,
+      title: 'Campaign Contributions',
+      labelSunbeamLayout: false,
+      legend: {
+        margin: {
+          top: 29,
+          right: 0,
+          bottom: 0,
+          left: 0
+        }
+      }
+    }
+  };
+  $scope.data = [  
+    {
+      key: 'Fossil Fuels',
+      y: 5
+    },
+    {
+      key: 'Financial Industry',
+      y: 2
+    },
+    {
+      key: 'Pharmaceutical Industry',
+      y: 9
+    },
+    {
+      key: 'Lobbyists',
+      y: 10
+    }
+  ];
+
   // $scope.labels = ["Agribusiness", "Communic/Electronics", "Construction", "New", "Old", "Telecom", "Lobbyists"];
   $scope.labels = ["", "", "", "", "", ""];
-  $scope.data = [[246439,8000,27350,5000,5000,11000]];
+  // $scope.data = [[246439,8000,27350,5000,5000,11000]];
   $scope.series = ["Campaign Contributions"];
   $scope.colours = [{fillColor:['#f53d3d','#387ef5','#32db64','#444','#222','#69BB7B'], strokeColor:['#f53d3d','#387ef5','#32db64','#444','#222','#69BB7B']}];
-  $scope.options = {
-  //     tooltipEvents: [],
-      showTooltips: false,
-  //     tooltipCaretSize: 0,
-  //     onAnimationComplete: function () {
-  //         this.showTooltip(this.segments, true);
-  //     },
-  };
+  // $scope.options = {
+      // showTooltips: false
+  // };
 
   // Form data for the login modal
   $scope.loginData = {}
