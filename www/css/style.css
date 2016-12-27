@@ -49,10 +49,6 @@ body {
     text-align: center !important;
 }
 
-.list {
-    /*background-color: rgba(0,0,0,0.85);*/
-}
-
 .rep-card a {
     margin-left: 21px;
 }
@@ -122,17 +118,10 @@ body {
     letter-spacing: 2px;
 }
 
-.item-avatar {
-    display: flex;
-    justify-content: center;
-    padding-left: 0;
-    padding-bottom: 0;
-}
-
 .item-avatar img {
     position: relative !important;
-    max-width: 125px !important;
-    max-height: 125px !important;
+    max-width: 120px !important;
+    max-height: 120px !important;
     top: 0 !important;
     left: 0 !important;
     margin-top: -70.5px;
@@ -251,7 +240,7 @@ body {
 }
 
 .list {
-    background: url('../img/patern-adh.png');
+    /*background: url('../img/patern-adh.png');*/
     /*background: url('../img/grid-pattern.png');*/
     padding: 0;
 }
@@ -262,13 +251,19 @@ body {
 }
 
 .item-avatar {
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
     margin-right: auto;
     margin-left: auto;
 	background: #1e90ff;
+    background-size: contain !important;
 	-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    padding-bottom: 0;
+    background-size: cover;
 }
 
 .item-avatar img {
@@ -296,11 +291,18 @@ ion-header-bar {
     background: none !important;
 }
 
+.pane {
+    /*background-size: 100%;*/
+    /*background-color: #bcbebd;*/
+    /*transition: 2s;*/
+}
+
 .rep-wall {
+    /*background: url('../img/patern-adh.png');*/
     background: url('../img/icon.png') no-repeat center center;
-    background-size: 100%;
+    background-size: 150%;
     background-color: #bcbebd;
-    transition: 2s;
+    transition: 1s;
     padding-top: 0px !important;
 }
 

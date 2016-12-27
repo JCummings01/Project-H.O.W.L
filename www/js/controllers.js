@@ -176,7 +176,10 @@ angular.module('starter.controllers', [])
   // }
 
   $scope.stateSelector = function (state) {
-    angular.element(document.querySelector('.rep-wall')).css('background-size', '150%');
+    var styles = {
+      "background": "url('../img/patern-adh.png')"
+    }
+    angular.element(document.querySelector('.rep-wall')).css(styles);
     var myEl = angular.element( document.querySelector( '.title' ) );
     myEl.addClass('animated');
     myEl.addClass('fadeIn');

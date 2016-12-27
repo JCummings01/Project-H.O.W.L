@@ -1,5 +1,5 @@
 <ion-view cache-view="false" view-title="{{currentState}}">
-  <ion-content ng-style="logoGrow" class="rep-wall" delegate-handle="rep-list">
+  <ion-content class="rep-wall" delegate-handle="rep-list">
     <!--<ion-scroll>-->
     <ion-list>
       <div ng-repeat="rep in reps track by $index" ng-class="'rep-' + rep['@attributes'].party" class="card rep-card">
