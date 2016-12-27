@@ -177,7 +177,7 @@ angular.module('starter.controllers', [])
 
   $scope.stateSelector = function (state) {
     var styles = {
-      "background": "url('../img/patern-adh.png')"
+      "background": "url('img/patern-adh.png')"
     }
     angular.element(document.querySelector('.rep-wall')).css(styles);
     var myEl = angular.element( document.querySelector( '.title' ) );

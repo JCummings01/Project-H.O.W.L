@@ -291,12 +291,6 @@ ion-header-bar {
     background: none !important;
 }
 
-.pane {
-    /*background-size: 100%;*/
-    /*background-color: #bcbebd;*/
-    /*transition: 2s;*/
-}
-
 .rep-wall {
     /*background: url('../img/patern-adh.png');*/
     background: url('../img/icon.png') no-repeat center center;
