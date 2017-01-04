@@ -6,12 +6,13 @@
         <div id="{{$index}}" class="item item-text-wrap animated slideInUp">
           <div class="item rep-header">
             <div class="row">
-              <div class="col-40">
-                <div class="item-avatar" style="background: url('https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg') no-repeat center;">
-                <!--<img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">-->
+              <div class="col-30">
+                <!--<div class="item-avatar" style="background: url('https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg') no-repeat center;">-->
+                <div class="item-img">
+                  <img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">
                 </div>
               </div>
-              <div class="col-60 firstlast">
+              <div class="col-70 firstlast">
                 {{rep['@attributes'].firstlast}}
                 <p class="rep-attribute">In office: <span class="rep-time">{{2016 - rep['@attributes'].first_elected}} years ({{rep['@attributes'].first_elected}})</span></p> 
               </div>
