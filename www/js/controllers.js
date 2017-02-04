@@ -13,6 +13,8 @@ angular.module('starter.controllers', [])
   // var candId
   var osLegUrl = 'https://www.opensecrets.org/api/?method=getLegislators&id='
   var osCandUrl = 'http://www.opensecrets.org/api/?method=candIndustry&cid='
+  var openStatesApi = 'http://www.openstates.org/api/v1/legislators/?state='
+  var openStatesApi2 = 'http://www.openstates.org/api/v1/metadata/'
   $scope.currentState
   $scope.states = [
     {'state': 'Alabama', 'abbrev': 'AL'},
@@ -147,7 +149,7 @@ angular.module('starter.controllers', [])
       //  { text: 'Move' }
       // ],
       // destructiveText: 'Delete',
-      titleText: '<b>Hi Representative/Senator,</b> Im a citizen of your state and Id like to talk to you about an important resolution that aims to fix the corruption happening in Washington, D.C. by restoring Free and Fair Elections in America. The purpose of this Resolution is to clean up our election system so that the voices of average Americans don’t continue to be drowned out by big money and special interests. Is this an issue you care about? Thank you. This Resolution calls for an amendment to our U.S. Constitution because we need to solve this problem for the long run. Since Congress is incapable of solving any problem, let alone this one, we are working to get this amendment through our state legislatures, which is why I’m talking to you! I trust you much more than Congress. The resolution calls for an amendment convention to propose an amendment that would deal with the influence of money in our political system. A national convention is the way for us to go around Congress and get an amendment ourselves without relying on them, nor waiting around for them. Do you think there is any part of our election system that could work better for the average American?',
+      titleText: '<b> Phone Script </b></br> Hi, Im a citizen of your state and I would like to talk to you about an important resolution that aims to fix the corruption happening in Washington, D.C. by restoring Free and Fair Elections in America. The purpose of this Resolution is to clean up our election system so that the voices of average Americans don’t continue to be drowned out by big money and special interests. Is this an issue you care about? </br><b>If Yes...</b></br>Thank you. This Resolution calls for an amendment to our U.S. Constitution because we need to solve this problem for the long run. Since Congress is incapable of solving any problem, let alone this one, we are working to get this amendment through our state legislatures, which is why I’m talking to you! I trust you much more than Congress. The resolution calls for an amendment convention to propose an amendment that would deal with the influence of money in our political system. A national convention is the way for us to go around Congress and get an amendment ourselves without relying on them, nor waiting around for them. </br><b>If No...</b></br>Do you think there is any part of our election system that could work better for the average American?',
       cancelText: 'Cancel',
       cancel: function () {
           // add cancel code..
@@ -188,25 +190,42 @@ angular.module('starter.controllers', [])
     $scope.show($ionicLoading);
     console.log('received via stateSelector click', state)
     $scope.currentState = state.state
-    $http.get(osLegUrl + state.abbrev + apiKey + '&output=json')
+    // $http.get(osLegUrl + state.abbrev + apiKey + '&output=json')
+    $http.get(openStatesApi2 + state.abbrev)
       .success(function (data, status, headers, config) {
-        console.log('data success', data.response.legislator[0]['@attributes'])
-        $scope.reps = data.response.legislator // for UI
+        console.log('legislature name data success', data)
+        $scope.legislatureName = data // for UI
       })
       .error(function (data, status, headers, config) {
         console.log('data error')
       })
       .then(function(result){
-        // console.log('then function after get reps...this work?', result.data.response.legislator)
+        // console.log('then function after get reps...this work?')
+      });
+    $http.get(openStatesApi + state.abbrev)
+      .success(function (data, status, headers, config) {
+        // console.log('data success', data.response.legislator[0]['@attributes'])
+        console.log('data success', data)
+        $scope.reps = data // for UI
+        // api.getJson()
+        //   .then(function(result) {
+        //     console.log('this result????', result)
+        //   })
+      })
+      .error(function (data, status, headers, config) {
+        console.log('data error')
+      })
+      .then(function(result){
+        console.log('then function after get reps...this work?')
         // for (var i = 0; i < result.data.response.legislator.length; i++) {
         //   var candidateId = result.data.response.legislator[i]['@attributes'].cid
         // api.getIndustries(result)
-        api.getCandData(result)
-          .then(function(result) {
-            console.log('controller.js - this should be candJSON', result)
-            // console.log('results in Controller from Industry factory call', result)
-            // $scope.repSectors = result
-            })
+        // api.getCandData(result)
+        //   .then(function(result) {
+        //     console.log('controller.js - this should be candJSON', result)
+        //     // console.log('results in Controller from Industry factory call', result)
+        //     // $scope.repSectors = result
+        //     })
       });
       $scope.hide($ionicLoading);
   }

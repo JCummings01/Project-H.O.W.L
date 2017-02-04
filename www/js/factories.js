@@ -25,22 +25,41 @@
     var apiKey1 = '&apikey=e7ef140f90ae825cd6b374b61953491a'
     var osCandUrl = 'http://www.opensecrets.org/api/?method=candIndustry&cid='
     var osSectUrl = 'http://www.opensecrets.org/api/?method=candSector&cid='
+    var openSecretsApi =  'http://openstates.org/api/v1/legislators/?state='
 
-    factory.getCandData = function() {
-      var defer = $q.defer()
-      $http.get('candidateJSON.json')
-        .success(function(data, status, headers, config) {
-          console.log('success loading candJSON', data)
-        })
-        .error(function(data, status, headers, config) {
-          console.log('error loading candJSON data', data)
-        })
-        .then(function(result){
-            console.log('then function after getCandJSON...', result)
-            // things = result.data;
-        })
-        return defer.promise
-    }
+    // factory.getCandData = function() {
+    //   var defer = $q.defer()
+    //   $http.get('candidateJSON.json')
+    //     .success(function(data, status, headers, config) {
+    //       console.log('success loading candJSON', data)
+    //     })
+    //     .error(function(data, status, headers, config) {
+    //       console.log('error loading candJSON data', data)
+    //     })
+    //     .then(function(result){
+    //         console.log('then function after getCandJSON...', result)
+    //         // things = result.data;
+    //     })
+    //     return defer.promise
+    // }
+
+    // factory.getJson = function() {
+    // var defer = $q.defer()
+    // $http.get('JSONTEST.json')
+    //   .success(function(data, status, headers, config) {
+    //     console.log('success loading getJSON', data.data)
+    //     defer.resolve(data.data)
+    //     // $scope.doodles = data;
+    //   })
+    //   .error(function(data, status, headers, config) {
+    //     console.log('error loading getJSON', data)
+    //   })
+    //   .then(function(result){
+    //       console.log('then function after getJSON...', result)
+    //       // things = result.data;
+    //   })
+    //   return defer.promise
+    // }
 
 //     factory.getIndustries = function(reps) {
 //      var defer = $q.defer()

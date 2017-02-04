@@ -1,20 +1,21 @@
-<ion-view cache-view="false" view-title="{{currentState}}">
+<ion-view cache-view="false" view-title="{{legislatureName.legislature_name}}">
   <ion-content class="rep-wall" delegate-handle="rep-list">
     <!--<ion-scroll>-->
     <ion-list>
-      <div ng-repeat="rep in reps track by $index" ng-class="'rep-' + rep['@attributes'].party" class="card rep-card">
+      <!--<div ng-repeat="rep in reps track by $index" ng-class="'rep-' + rep['@attributes'].party" class="card rep-card">-->
+      <div ng-repeat="rep in reps track by $index" ng-class="'rep-' + rep.party" class="card rep-card">
         <div id="{{$index}}" class="item item-text-wrap animated slideInUp">
           <div class="item rep-header">
             <div class="row">
-              <div class="col-30">
+              <div class="rep-info">
                 <!--<div class="item-avatar" style="background: url('https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg') no-repeat center;">-->
                 <div class="item-img">
-                  <img src="https://s3.amazonaws.com/assets.opensecrets.org/politicians/img/{{rep['@attributes'].cid}}.jpg">
+                  <img src="{{rep.photo_url}}">
                 </div>
               </div>
-              <div class="col-70 firstlast">
-                {{rep['@attributes'].firstlast}}
-                <p class="rep-attribute">In office: <span class="rep-time">{{2016 - rep['@attributes'].first_elected}} years ({{rep['@attributes'].first_elected}})</span></p> 
+              <div class="firstlast">
+                {{rep.full_name}}
+                <!--<p class="rep-attribute">In office: <span class="rep-time">{{2016 - rep['@attributes'].first_elected}} years ({{rep['@attributes'].first_elected}})</span></p> -->
               </div>
             </div>
             <div class="rep-name">
@@ -24,7 +25,7 @@
                 <div class="col-25"></div>
               </div>-->
               <!--<canvas id="bar" class="chart chart-bar" data="data" series="series" options="options" labels="labels" legend="false" colours="colours"></canvas>-->
-              <nvd3 options="options" data="data"></nvd3>
+          <!--<nvd3 options="options" data="data"></nvd3>-->
               <!--<div class="sector-names">
                 <div class="sector-1">Agriculture</div>
                 <div class="sector-2">Comm</div>
@@ -33,6 +34,23 @@
                 <div class="sector-5">Medical</div>
                 <div class="sector-6">Environmental</div>
               </div>-->
+              <div class="rep-chamber" ng-if="rep.chamber == 'lower'">
+                Representative
+              </div>
+              <div class="rep-chamber" ng-if="rep.chamber == 'upper'">
+                Senator
+              </div>
+              <div class="rep-district">
+                District: 
+                {{rep.district}}
+              </div>
+              <div class="rep-occupation">
+                Occupation: 
+                {{rep['+occupation']}}
+              </div>
+              <div class="">
+                {{rep.offices[0].address}}
+              </div>
             </div>
           </div>
           <div class="script-block">
@@ -45,31 +63,31 @@
               <div class="col-20 spacer"></div>
             </div>-->
             <div class="row social-row">
-              <div class="twitter-3">
+              <!--<div class="twitter-3">
                 <div class="twitter-2">
                   <div class="twitter">
                     <i class="ion-social-twitter" ng-click="sendTweet(rep['@attributes'].twitter_id)"></i>
                   </div>
                 </div>
-              </div>
-              <div class="facebook-3">
+              </div>-->
+              <!--<div class="facebook-3">
                 <div class="facebook-2">
                   <div class="facebook">
                     <i class="ion-social-facebook" ng-click="sendFb(rep['@attributes'].facebook_id)"></i>
                   </div>
                 </div>
-              </div>
+              </div>-->
               <div class="phone-3">
                 <div class="phone-2">
                   <div class="phone">
-                    <i class="ion-ios-telephone-outline" ng-click="placeCall(rep['@attributes'].phone)"></i>
+                    <i class="ion-ios-telephone-outline" ng-click="placeCall(rep.offices[0].phone)"></i>
                   </div>
                 </div>
               </div>
               <div class="email-3">
                 <div class="email-2">
                   <div class="email">
-                    <i class="ion-ios-email" ng-click="sendEmail(rep['@attributes'].webform)"></i>
+                    <i class="ion-ios-email" ng-click="sendEmail(rep.offices[0].email)"></i>
                   </div>
                 </div>
               </div>
