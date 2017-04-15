@@ -5,22 +5,11 @@
       </ion-nav-back-button>
 
       <ion-nav-buttons side="left">
-        <!--<button class="button button-icon button-clear ion-navicon" menu-toggle="left">-->
         <button class="button button-icon button-clear menu-claw" menu-toggle="left">
         </button>
       </ion-nav-buttons>
-      <!--<ion-nav-title>-->
-        <!--<div class="howllogo"></div>-->
-      <!--</ion-nav-title>-->
       <ion-nav-buttons side="right">
-        <!--<button ng-click="showScript()" class="button icon script ion-ios-paper-outline"></button>-->
-        <!--<div class="wolf-3">
-          <div class="wolf-2"> 
-            <div class="wolf">-->
-              <img ng-click="showScript()" src="img/howllogo.svg" class="howllogo"></img>
-            <!--</div>
-          </div>
-        </div>-->
+        <img ng-click="showScript()" src="img/howllogo.svg" class="howllogo"></img>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
@@ -37,7 +26,9 @@
           <ion-item class="pac-links" ng-click="openWindow('http://www.wolf-pac.com/donate')">Donate</ion-item>
           <ion-item class="pac-links" ng-click="openWindow('http://www.wolf-pac.com/volunteer')">Volunteer</ion-item>
           <ion-item class="pac-links" ng-click="openWindow('http://www.wolf-pac.com/petition')">Sign Petition</ion-item>
-          <ion-item menu-close ng-class="{won: state.state === 'California' || state.state == 'Illinois' || state.state == 'New Jersey' || state.state == 'Rhode Island' || state.state == 'Vermont'}" class="state-list-item" ng-repeat="state in states" ng-click="stateSelector(state)">
+          <ion-item class="pac-links" ng-click="goZip()">Zip</ion-item>
+          
+          <ion-item menu-close ng-class="{active: state.state == currentState, won: state.state === 'California' || state.state == 'Illinois' || state.state == 'New Jersey' || state.state == 'Rhode Island' || state.state == 'Vermont'}" class="state-list-item" ng-repeat="state in states" ng-click="stateSelector(state)">
             {{state.state}}
           </ion-item>
         </ion-list>

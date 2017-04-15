@@ -1,9 +1,3 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordovaOauth', 'ngTwitter', 'chart.js', 'duScroll', 'nvd3'])
 
 .run(function ($ionicPlatform, $rootScope) {
@@ -20,11 +14,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault()
     }
-  //   $rootScope.$on('$viewContentLoaded', function(){
-  //   //Here your view content is fully loaded !!
-  //   console.log('loaded!')
-  // });
-  // $cordovaPlugin.someFunction().then(success, error)
   })
 })
 
@@ -37,30 +26,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
       templateUrl: 'templates/menu.html',
       controller: 'AppCtrl'
     })
-
-  // .state('app.home', {
-  //   url: '/home',
-  //   views: {
-  //     'menuContent': {
-  //       templateUrl: 'templates/home.html'
-  //     }
-  //   }
-  // })
-
-  .state('app.browse', {
-    url: '/browse',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/browse.html'
+    .state('app.browse', {
+      url: '/browse',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/browse.html'
+        }
       }
-    }
-  })
+    })
     .state('app.reps', {
       url: '/reps',
       views: {
         'menuContent': {
           templateUrl: 'templates/reps.html'
-          // controller: 'RepsCtrl'
+        }
+      }
+    })
+    .state('app.zip', {
+      url: '/zip',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/login.html'
         }
       }
     })
