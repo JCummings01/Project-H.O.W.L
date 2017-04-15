@@ -578,7 +578,7 @@ body {
     background-size: 120%;
     background-position-x: 150px;
     background-position-y: 50px;
-    transition: 1s;
+    transition: 2s;
     padding-top: 0px !important;
     overflow-y: auto;
 }
