@@ -1,10 +1,10 @@
 <ion-view cache-view="false" view-title="{{state}}">
   <ion-content class="rep-wall" delegate-handle="rep-list">
     <div class="app-name">
-      <div class="app-name-text">H<span class="thinner">onest</span></div>
-      <div class="app-name-text">O<span class="thinner">utreach</span></div>
-      <div class="app-name-text">W<span class="thinner">ith</span></div>
-      <div class="app-name-text">L<span class="thinner blinker">egislators</span></div>
+      <span class="test-ptrn"><div class="app-name-text">H<span class="thinner">onest</span></div></span>
+      <span class="test-ptrn"><div class="app-name-text">O<span class="thinner">utreach</span></div></span>
+      <span class="test-ptrn"><div class="app-name-text">W<span class="thinner">ith</span></div></span>
+      <span class="test-ptrn"><div class="app-name-text">L<span class="thinner blinker">egislators</span></div></span>
     </div>
     <ion-list>
       <div ng-repeat="rep in reps track by $index" ng-class="'rep-' + rep['@attributes'].party" class="card rep-card">
