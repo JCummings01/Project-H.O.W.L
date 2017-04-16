@@ -786,7 +786,7 @@ body {
     justify-content: center;
 }
 .app-name-text {
-    margin: 5px 0;
+    margin: -7px 0 6px 0;
     padding-left: 3px;
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5em;
@@ -800,7 +800,8 @@ body {
 .test-ptrn {
     background: url('../img/hatch2.png');
     padding-right: 13px;
-    animation-name: rotate-in-2-tl-ccw;
+    margin-bottom: 20px;
+    animation-name: slide-in-left;
     animation-duration: 1s;
 }
 
@@ -937,7 +938,7 @@ body {
     color: #aaa;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -1034,9 +1035,10 @@ body {
     border-bottom-color: transparent !important;
     background-image: none !important;
     border-bottom: none !important;
-    background-color: #f1f1f1 !important;
-    opacity: .35;
-    height: 50px;
+    background-color: transparent !important;
+    /*opacity: .35;*/
+    padding: 0;
+    height: 60px;
 }
 
 .rep-wall {
@@ -1107,10 +1109,11 @@ body {
 
 .howllogo {
     animation-name: fade-in;
+    animation-duration: 1s;
     transition: all 0.2s ease-out;
     height: 60px;
     width: 60px;
-    margin-top: 1px;
+    margin-top: 6px;
 }
 
 view-title {
@@ -1120,18 +1123,29 @@ view-title {
 .script-block {
     padding-bottom: 0px;
     padding-top: 30px;
-    font-family: 'Oswald';
+    /*font-family: 'Oswald';*/
     text-align: center;
-    font-weight: 300;
+    /*font-weight: 300;*/
 }
 
 .script-text {
-    background-color: rgba(255,242,0,0.9);
-    box-shadow: 7px 0 0 rgba(255,242,0,0.9),-7px 0 0 rgba(255,242,0,0.9);
-    font-family: 'Anton';
-    font-size: 22.75px;
-    line-height: 40px;
+    /*background-color: rgba(255,242,0,0.8);*/
+    background: url('../img/hatch2.png');
     letter-spacing: -1px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 40px;
+    padding: 0 6px 5px 0;
+}
+.test-ptrn-4 {
+    background-color: rgba(255,242,0,0.8) !important;
+    padding: 5px 7px 0 5px;
+    margin-left: -5px;
+    width: 100%;
+    line-height: 36px;
 }
 
 .menu-open .menu-content {
@@ -1223,16 +1237,16 @@ view-title {
 	border-radius: 30px;
 }
 .twitter-3, .wolf-3 {
-    background-color: #fff200;
+    background-color: rgba(255,242,0,0.9);
 }
 .facebook-3 {
-    background-color: #fff200;
+    background-color: rgba(255,242,0,0.9);
 }
 .phone-3 {
-    background-color: #fff200;
+    background-color: rgba(255,242,0,0.9);
 }
 .email-3 {
-    background-color: #fff200;
+    background-color: rgba(255,242,0,0.9);
 }
 .social-row {
     padding-top: 25px !important;
@@ -1359,10 +1373,9 @@ view-title {
 .menu-claw {
     background: url('../img/scratch.png') no-repeat center center !important;
     animation-name: fade-in;
-    width: 50px;
-    height: 60px;
-    margin-top: 5px;
-    margin-left: 15px;
+    animation-duration: 1s;
+    width: 40px;
+    height: 40px;
     background-size: contain !important;
     -webkit-transform: rotate(70deg);
     -moz-transform: rotate(70deg);
@@ -1370,11 +1383,65 @@ view-title {
     -o-transform: rotate(70deg);
     transform: rotate(70deg);
 }
-.right-buttons {
-    margin-right: 10px;
-    margin-top: 3px;
+.buttons-left {
+    margin-top: 9px;
+}
+.howl-btn {
+    animation-name: slide-in-left;
+    animation-duration: 1s;
+    height: 60px;
+    margin-right: 0;
+    margin-top: -20px;
+    padding-top: 8px;
+    padding-right: 5px;
+    background: url('../img/hatch2.png');
 }
 .ionic-scroll {
-    background-color: #f1f1f1;
+    background-color: #d8d8d8;
     padding-top: 10px;
+}
+.make-yellow {
+    background-color: rgba(255,242,0,0.8);
+    margin-top: -6px;
+    height: 36px;
+    padding: 0 10px 0px 10px;
+}
+.bar-header {
+    margin-top: 20px;
+}
+.test-ptrn-2 {
+    background: url('../img/hatch2.png');
+    padding-right: 6px;
+    margin: 0;
+    height: 35px;
+    animation-name: slide-in-left;
+    animation-duration: 1s;
+}
+.test-ptrn-3 {
+    background-color: rgba(255,242,0,0.8);
+    padding-right: 6px;
+    height: 60px;
+    width: 60px;
+    margin: -13px 0 0 0 !important;
+    animation-name: slide-in-left;
+    animation-duration: 1s;
+}
+.introOut {
+    display: none !important;
+    transition: 1s;
+}
+.state-label {
+    color: #aaa;
+    border: 1px solid #aaa;
+    height: 23px;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 0 8px;
+    line-height: 21px;
+    width: 100%;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 10px;
 }

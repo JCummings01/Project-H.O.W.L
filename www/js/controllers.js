@@ -61,6 +61,7 @@ angular.module('starter.controllers', [])
     {'state': 'Wisconsin', 'abbrev': 'WI'},
     {'state': 'Wyoming', 'abbrev': 'WY'}
   ]
+  $scope.introOut = false;
 
   // LOADING SPINNER
   $scope.show = function () {
@@ -147,6 +148,7 @@ angular.module('starter.controllers', [])
     api.getReps(stateName)
       .then(function (response) {
         $scope.reps = response;
+        $scope.introOut = true;
       })
     }     
 

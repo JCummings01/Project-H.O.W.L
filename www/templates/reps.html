@@ -1,6 +1,6 @@
-<ion-view cache-view="false" view-title="{{state}}">
+<ion-view cache-view="false">
   <ion-content class="rep-wall" delegate-handle="rep-list">
-    <div class="app-name">
+    <div ng-class="{introOut: introOut == true}" class="app-name">
       <span class="test-ptrn"><div class="app-name-text">H<span class="thinner">onest</span></div></span>
       <span class="test-ptrn"><div class="app-name-text">O<span class="thinner">utreach</span></div></span>
       <span class="test-ptrn"><div class="app-name-text">W<span class="thinner">ith</span></div></span>
@@ -17,6 +17,7 @@
                 </div>
               </div>
               <div class="firstlast">
+                <div class="state-label">{{currentState}}</div>
                 {{rep['@attributes'].firstlast}}
                 <p class="rep-attribute" style="margin-bottom: 3px;line-height: 20px;">has been in office for</p>
                 <p class="rep-attribute" style="margin-bottom: 0;line-height: 20px;">
@@ -26,7 +27,11 @@
             </div>
           </div>
           <div class="script-block">
-            <span class="script-text">"I’d like to talk to you about restoring Free and Fair Elections in America. Is this an issue you care about?"</span>
+            <div class="script-block-helper"><span class="script-text"><span class="test-ptrn-4">"I’d like to talk to you</span></span></div>
+            <div class="script-block-helper"><span class="script-text"><span class="test-ptrn-4">about restoring Free</span></span></div>
+            <div class="script-block-helper"><span class="script-text"><span class="test-ptrn-4">and Fair Elections in</span></span></div>
+            <div class="script-block-helper"><span class="script-text"><span class="test-ptrn-4">America. Is this an issue</span></span></div>
+            <div class="script-block-helper"><span class="script-text"><span class="test-ptrn-4">you care about?"</span></span></div>
           </div>
           <div class="rep-social">
             <div class="row social-row">
