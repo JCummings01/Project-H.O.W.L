@@ -19,10 +19,14 @@
               <div class="firstlast">
                 <div class="state-label">{{currentState}}</div>
                 {{rep['@attributes'].firstlast}}
-                <p class="rep-attribute" style="margin-bottom: 3px;line-height: 20px;">has been in office for</p>
-                <p class="rep-attribute" style="margin-bottom: 0;line-height: 20px;">
-                  <span class="rep-time" style="font-size: 1.5em;">{{2017 - rep['@attributes'].first_elected}} years ({{rep['@attributes'].first_elected}})</span> 
-                </p>
+                <div class="rep-attribute">
+                  <div class="container-fluid rep-time-label">
+                    <div class="divider"></div>
+                    <div class="time-label">has been in office for</div>
+                    <div class="divider"></div>
+                  </div>
+                  <p class="rep-time">{{2017 - rep['@attributes'].first_elected}} years ({{rep['@attributes'].first_elected}})</p> 
+                </div>
               </div>
             </div>
           </div>
